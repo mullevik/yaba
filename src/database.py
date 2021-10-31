@@ -5,7 +5,23 @@ from dataclasses import asdict, dataclass
 import datetime
 
 
-CREATE_SCRIPT = "CREATE TABLE IF NOT EXISTS transactions (id INTEGER PRIMARY KEY AUTOINCREMENT, timestamp TIMESTAMP, description TEXT, amount INTEGER)"
+CREATE_SCRIPT = """
+CREATE TABLE IF NOT EXISTS transactions (
+    id INTEGER PRIMARY KEY AUTOINCREMENT, 
+    timestamp TIMESTAMP,
+    description TEXT, 
+    amount INTEGER
+);
+CREATE TABLE IF NOT EXISTS labels (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT
+);
+CREATE TABLE IF NOT EXISTS transactions_labels (
+    transaction_id INTEGER REFERENCES transactions(id),
+    label_id INTEGER REFERENCES labels(id),
+    PRIMARY KEY (transaction_id, label_id)
+);
+"""
 
 DUMMY_TRANSACTION_ITEMS = [
     (datetime.datetime.now(), "first", 100),
@@ -15,12 +31,30 @@ DUMMY_TRANSACTION_ITEMS = [
     (datetime.datetime.now(), "fifth", -100),
 ]
 
+DUMMY_LABEL_ITEMS = [
+    ("one",),
+    ("two",),
+    ("three",)
+]
+
+DUMMY_TRANSACTION_LABEL_ITEMS = [
+    (1, 1),
+    (1, 2),
+    (2, 2)
+]
+
 @dataclass
 class Transaction:
     id: int
     timestamp: datetime.datetime
     description: str
     amount: int
+
+
+@dataclass
+class Label:
+    id: int
+    name: str
 
 
 @dataclass
@@ -39,7 +73,7 @@ class Database:
         connection = sqlite3.connect(db_file_path, detect_types=sqlite3.PARSE_DECLTYPES | sqlite3.PARSE_COLNAMES)
         with connection as conn:
             cursor = conn.cursor()
-            cursor.execute(CREATE_SCRIPT)
+            cursor.executescript(CREATE_SCRIPT)
         return connection
 
     def _fill_with_something_if_empty(self):
@@ -49,7 +83,9 @@ class Database:
 
         with self.connection as conn:
             cursor = conn.cursor()
-            cursor.executemany("INSERT INTO transactions(timestamp, description, amount) VALUES (?, ?,?)", DUMMY_TRANSACTION_ITEMS)
+            cursor.executemany("INSERT INTO transactions(timestamp, description, amount) VALUES (?,?,?)", DUMMY_TRANSACTION_ITEMS)
+            cursor.executemany("INSERT INTO labels(name) VALUES (?)", DUMMY_LABEL_ITEMS)
+            cursor.executemany("INSERT INTO transactions_labels(transaction_id, label_id) VALUES (?,?)", DUMMY_TRANSACTION_LABEL_ITEMS)            
             conn.commit()
 
     def __init__(self) -> None:
@@ -66,6 +102,20 @@ class Database:
             cursor.execute("SELECT * FROM transactions ORDER BY timestamp DESC")
             results = cursor.fetchall()
             return [Transaction(*result) for result in results]
+    
+    def get_labels(self) -> List[Label]:
+        with self.connection as conn:
+            cursor = conn.cursor()
+            cursor.execute("SELECT * FROM labels")
+            results = cursor.fetchall()
+            return [Label(*result) for result in results]
+    
+    def get_labels_for_transaction(self, transaction: Transaction) -> List[Label]:
+        with self.connection as conn:
+            cursor = conn.cursor()
+            cursor.execute("SELECT labels.id, labels.name FROM labels LEFT JOIN transactions_labels tl ON labels.id = tl.label_id WHERE tl.transaction_id = ?", (transaction.id,))
+            results = cursor.fetchall()
+            return [Label(*result) for result in results]
 
     def add_transaction(self, transaction: NewTransaction) -> None:
         with self.connection as conn:

@@ -1,12 +1,12 @@
-import dataclasses
 import datetime
-from typing import cast
+from typing import Any, List, cast
 from kivy.app import App
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.recycleview import RecycleView
+from kivy.uix.recycleview.views import RecycleDataViewBehavior
 from kivy.uix.popup import Popup
 
-from database import Database, NewTransaction
+from database import Database, Label, NewTransaction, Transaction
 
 class TransactionHistory(RecycleView):
 
@@ -16,8 +16,26 @@ class TransactionHistory(RecycleView):
 
 
     def update(self) -> None:
+        app = cast(MainApp, App.get_running_app())        
+
+        self.data = [{"data": t} for t in app.database.get_transactions()]
+
+
+class TransactionItem(RecycleDataViewBehavior, BoxLayout):
+    ''' Add selection support to the Label '''
+
+    def refresh_view_attrs(self, rv: RecycleView, index: int, data: Any):
+        ''' Catch and handle the view changes '''
         app = cast(MainApp, App.get_running_app())
-        self.data = [{"text": str(dataclasses.asdict(t))} for t in app.database.get_transactions()]
+        
+        transaction = cast(Transaction, data["data"])
+        self.ids.amount.text = str(transaction.amount)
+        self.ids.description.text = transaction.description
+
+        labels = app.database.get_labels_for_transaction(transaction)
+        self.ids.labels.text = str([l.name for l in labels])
+        return super().refresh_view_attrs(rv, index, data)
+
 
 
 class YetAnotherBudgetApp(BoxLayout):
@@ -25,9 +43,12 @@ class YetAnotherBudgetApp(BoxLayout):
 
 class NewTransactionPopup(Popup):
 
-    def __init__(self, **kwargs):
-        super().__init__(**kwargs)
+    labels: List[Label]
 
+    def __init__(self, **kwargs):
+        app = cast(MainApp, App.get_running_app())
+        self.labels = app.database.get_labels()
+        super().__init__(**kwargs)
     
     def on_add_item(self) -> None:
         app = cast(MainApp, App.get_running_app())

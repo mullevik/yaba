@@ -12,7 +12,6 @@
         height: self.texture_size[1] + dp(10)
     TransactionHistory:
         id: history
-    
     Button:
         text: "New Transaction"
         on_release: Factory.NewTransactionPopup().open()
@@ -34,15 +33,24 @@
         orientation: 'vertical'
 
 
-<TransactionItem@Label>:
-    color: 0, 1, 0, 1
-    size_hint_y: None
-    canvas.before:
-        Color:
-            rgba: 0.5, 0.5, 0.5, 1
-        Rectangle:
-            pos: self.pos
-            size: self.size
+<TransactionItem>:
+    orientation: 'horizontal'
+    Label:
+        id: amount
+        text: "sample amount"
+        size_hint_y: None
+
+    Label:
+        id: labels
+        text: "sample labels"
+        size_hint_y: None
+
+    Label:
+        id: description
+        text: "Sample description"
+        size_hint_y: None
+
+
 
 <NewTransactionPopup@Popup>:
     auto_dismiss: False
@@ -67,6 +75,9 @@
             id: description
             input_type: "text"
             multiline: False
+        
+        Label:
+            text: str(root.labels)
 
         Button:
             text: 'Add random!'
