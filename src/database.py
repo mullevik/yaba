@@ -2,27 +2,30 @@ import os
 import sqlite3
 from typing import List
 from dataclasses import asdict, dataclass
+import datetime
 
 
-CREATE_SCRIPT = "CREATE TABLE IF NOT EXISTS transactions (id INTEGER PRIMARY KEY AUTOINCREMENT, description TEXT, amount INTEGER)"
+CREATE_SCRIPT = "CREATE TABLE IF NOT EXISTS transactions (id INTEGER PRIMARY KEY AUTOINCREMENT, timestamp TIMESTAMP, description TEXT, amount INTEGER)"
 
 DUMMY_TRANSACTION_ITEMS = [
-    ("first", 100),
-    ("second", 100),
-    ("third", 50),
-    ("fourth", -120),
-    ("fifth", -100),
+    (datetime.datetime.now(), "first", 100),
+    (datetime.datetime.now(), "second", 100),
+    (datetime.datetime.now(), "third", 50),
+    (datetime.datetime.now(), "fourth", -120),
+    (datetime.datetime.now(), "fifth", -100),
 ]
 
 @dataclass
 class Transaction:
     id: int
+    timestamp: datetime.datetime
     description: str
     amount: int
 
 
 @dataclass
 class NewTransaction:
+    timestamp: datetime.datetime
     description: str
     amount: int
 
@@ -33,7 +36,7 @@ class Database:
 
     @staticmethod
     def _connect(db_file_path: str) -> sqlite3.Connection:
-        connection = sqlite3.connect(db_file_path)
+        connection = sqlite3.connect(db_file_path, detect_types=sqlite3.PARSE_DECLTYPES | sqlite3.PARSE_COLNAMES)
         with connection as conn:
             cursor = conn.cursor()
             cursor.execute(CREATE_SCRIPT)
@@ -46,7 +49,7 @@ class Database:
 
         with self.connection as conn:
             cursor = conn.cursor()
-            cursor.executemany("INSERT INTO transactions(description, amount) VALUES (?,?)", DUMMY_TRANSACTION_ITEMS)
+            cursor.executemany("INSERT INTO transactions(timestamp, description, amount) VALUES (?, ?,?)", DUMMY_TRANSACTION_ITEMS)
             conn.commit()
 
     def __init__(self) -> None:
@@ -60,12 +63,12 @@ class Database:
     def get_transactions(self) -> List[Transaction]:
         with self.connection as conn:
             cursor = conn.cursor()
-            cursor.execute("SELECT * FROM transactions")
+            cursor.execute("SELECT * FROM transactions ORDER BY timestamp DESC")
             results = cursor.fetchall()
             return [Transaction(*result) for result in results]
 
     def add_transaction(self, transaction: NewTransaction) -> None:
         with self.connection as conn:
             cursor = conn.cursor()
-            cursor.execute("INSERT INTO transactions(description, amount) VALUES (?,?)", tuple(asdict(transaction).values()))
+            cursor.execute("INSERT INTO transactions(timestamp, description, amount) VALUES (?, ?,?)", tuple(asdict(transaction).values()))
             conn.commit()

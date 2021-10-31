@@ -1,14 +1,12 @@
 import dataclasses
+import datetime
 from typing import cast
-import random
 from kivy.app import App
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.recycleview import RecycleView
-from kivy.uix.widget import Widget
-from kivy.uix.label import Label
 from kivy.uix.popup import Popup
 
-from database import Database, NewTransaction, Transaction
+from database import Database, NewTransaction
 
 class TransactionHistory(RecycleView):
 
@@ -33,7 +31,11 @@ class NewTransactionPopup(Popup):
     
     def on_add_item(self) -> None:
         app = cast(MainApp, App.get_running_app())
-        app.database.add_transaction(NewTransaction("New random string " + str(random.randint(100, 999)), random.randint(-200, 200)))
+
+        amount = self.ids.amount.text
+        description = self.ids.description.text
+
+        app.database.add_transaction(NewTransaction(datetime.datetime.now(), description, amount))
 
         history: TransactionHistory = app.root.ids.history
         history.update()
