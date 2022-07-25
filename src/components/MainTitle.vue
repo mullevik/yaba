@@ -1,0 +1,28 @@
+<template>
+  <div class="title">
+    <h1>{{ title }}</h1>
+    <p>{{ description }}</p>
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'MainTitle',
+  props: {
+    title: String,
+    description: String,
+  }
+}
+</script>
+
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style scoped>
+h1 {
+  margin: 40px 0 0;
+  font-family: serif;
+  color: black;
+}
+p {
+  color: gray;
+}
+</style>
