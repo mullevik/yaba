@@ -43,8 +43,8 @@ export default {
       selectedLabels: [],
       availableLabels: [
         "groceries", "fuel", "rent", "restaurant", "food",
-        "alcohol", "entertainment", "sport", "drugstore", 
-        "pharmacy", "public transport", "subscription",
+        "alcohol", "entertainment", "sport", "drugstore", "accommodation",
+        "pharmacy", "public-transport", "subscription", "traveling",
         "music", "clothes", "fashion", "home", "fast-food",
         "patisserie", "video-games", "technology", "furniture",
       ],
