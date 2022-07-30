@@ -3,20 +3,25 @@
   <HelloWorld msg="Welcome to Your Vue.js App"/>
   <MainTitle title="yaba" description="yet another budget app"/>
   <MainForm/>
+  <SettingsForm/>
+  <PendingLogs/>
 </template>
 
 <script>
 import HelloWorld from './components/HelloWorld.vue'
 import MainTitle from './components/MainTitle.vue'
 import MainForm from './components/MainForm.vue'
-
+import SettingsForm from './components/SettingsForm.vue'
+import PendingLogs from './components/PendingLogs.vue'
 
 export default {
   name: 'App',
   components: {
     HelloWorld,
     MainTitle,
-    MainForm
+    MainForm,
+    SettingsForm,
+    PendingLogs,
   }
 }
 </script>

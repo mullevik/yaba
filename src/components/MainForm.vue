@@ -18,6 +18,9 @@
 
 <script>
 import Multiselect from '@vueform/multiselect'
+import { createBudgeLog } from "@/budgetUtils"
+import { storePendingBudgetLog } from "@/localStorageUtils"
+import { sendBudgetLog } from "@/api"
 
 
 export default {
@@ -33,33 +36,19 @@ export default {
     },
   methods: {
     logPaidAmount() {
-      console.log(`Amount: ${this.amount}, Currency: ${this.currency}, Tags: ${this.selectedLabels}`);
-
-      const tmpUrl = "https://script.google.com/macros/s/AKfycbyiSgkHhLqIfB53fBsgwuyl9BXk3tf4tPbg7mRHG-ierELDOZS0tk97W-yCjosJ7MZJig/exec";
-      const tmpApiKey = "Wrong"
-      const bodyData = {
-        "api_key": tmpApiKey,
-        "unix_timestamp": Math.floor(new Date().getTime() / 1000),
-        "amount": this.amount,
-        "currency": this.currency,
-        "labels": this.selectedLabels,
-      };
-
-      fetch(tmpUrl, {
-        method: 'POST',
-        headers: {
-          'Content-Type': "text/plain;charset=utf-8",
-        },
-        redirect: "follow",
-        body: JSON.stringify(bodyData)
-      })
-      .then(response => response.json())
+      
+      // const tmpUrl = "https://script.google.com/macros/s/AKfycbyiSgkHhLqIfB53fBsgwuyl9BXk3tf4tPbg7mRHG-ierELDOZS0tk97W-yCjosJ7MZJig/exec";
+      // const tmpApiKey = "Wrong"
+      const budgetLog = createBudgeLog(this.amount, this.currency, this.selectedLabels);
+      sendBudgetLog(budgetLog)
       .then(responseData => {
+        console.log("Successfully sent budget log");
         console.log(responseData);
       })
       .catch(e => {
-        console.log("Catching error");
+        console.error("Budget log could not have been sent");
         console.error(e);
+        storePendingBudgetLog(budgetLog);
       });
     }
   }
