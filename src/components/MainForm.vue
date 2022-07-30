@@ -10,7 +10,7 @@
       <br>
       <br>
 
-      <Multiselect v-model="selectedLabels" :options="availableLabels" mode="tags" searchable="true"/>
+      <Multiselect v-model="selectedLabels" :options="availableLabels" mode="tags" searchable="true" />
       <br>
       <br>
 
@@ -36,21 +36,27 @@ const SENDING_STATE = {
 export default {
   name: 'MainForm',
   components: { Multiselect },
-    data () {
-      return {
-        amount: null,
-        currency: "CZK",
-        selectedLabels: [],
-        availableLabels: ['groceries', 'sport', 'restaurants'],
-        sendingState_: SENDING_STATE.READY,
-      }
-    },
+  data() {
+    return {
+      amount: null,
+      currency: "CZK",
+      selectedLabels: [],
+      availableLabels: [
+        "groceries", "fuel", "rent", "restaurant", "food",
+        "alcohol", "entertainment", "sport", "drugstore", 
+        "pharmacy", "public transport", "subscription",
+        "music", "clothes", "fashion", "home", "fast-food",
+        "patisserie", "video-games", "technology", "furniture",
+      ],
+      sendingState_: SENDING_STATE.READY,
+    }
+  },
   computed: {
     sendingButtonLabel_() {
-      if (this.sendingState_ == SENDING_STATE.READY) {return "Send"}
-      if (this.sendingState_ == SENDING_STATE.SENDING) {return "Sending..."}
-      if (this.sendingState_ == SENDING_STATE.SUCCESS) {return "Successfully sent"}
-      if (this.sendingState_ == SENDING_STATE.FAILED) {return "Failed to send"}
+      if (this.sendingState_ == SENDING_STATE.READY) { return "Send" }
+      if (this.sendingState_ == SENDING_STATE.SENDING) { return "Sending..." }
+      if (this.sendingState_ == SENDING_STATE.SUCCESS) { return "Successfully sent" }
+      if (this.sendingState_ == SENDING_STATE.FAILED) { return "Failed to send" }
       return "Send";
     },
     sendingButtonDisabled_() {
@@ -58,42 +64,42 @@ export default {
     }
   },
   watch: {
-    amount: function(value) {
-      if (value !== null) {this.sendingState_ = SENDING_STATE.READY}
+    amount: function (value) {
+      if (value !== null) { this.sendingState_ = SENDING_STATE.READY }
     }
   },
   methods: {
     clearData() {
       this.amount = null,
-      this.selectedLabels = [];
+        this.selectedLabels = [];
     },
     logPaidAmount() {
-      
+
       // const tmpUrl = "https://script.google.com/macros/s/AKfycbyiSgkHhLqIfB53fBsgwuyl9BXk3tf4tPbg7mRHG-ierELDOZS0tk97W-yCjosJ7MZJig/exec";
       // const tmpApiKey = "Wrong"
       const budgetLog = createBudgeLog(this.amount, this.currency, this.selectedLabels);
       this.sendingState_ = SENDING_STATE.SENDING;
       sendBudgetLog(budgetLog)
-      .then(responseData => {
-        console.log("Successfully sent budget log");
-        console.log(responseData);
-        this.clearData();
-        this.sendingState_ = SENDING_STATE.SUCCESS;
-      })
-      .catch(e => {
-        console.error("Budget log could not have been sent");
-        console.error(e);
-        storePendingBudgetLog(budgetLog);
-        this.clearData();
-        this.sendingState_ = SENDING_STATE.FAILED;
-      });
+        .then(responseData => {
+          console.log("Successfully sent budget log");
+          console.log(responseData);
+          this.clearData();
+          this.sendingState_ = SENDING_STATE.SUCCESS;
+        })
+        .catch(e => {
+          console.error("Budget log could not have been sent");
+          console.error(e);
+          storePendingBudgetLog(budgetLog);
+          this.clearData();
+          this.sendingState_ = SENDING_STATE.FAILED;
+        });
     }
   }
 }
 </script>
-<style src="@vueform/multiselect/themes/default.css"></style>
+<style src="@vueform/multiselect/themes/default.css">
+</style>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
 </style>
