@@ -1,4 +1,5 @@
 # yaba
+Yet another budget app
 
 ## Project setup
 ```
@@ -13,6 +14,11 @@ npm run serve
 ### Compiles and minifies for production
 ```
 npm run build
+```
+
+### Compiles and serves PWA locally
+```
+npm run build && npx http-server dist
 ```
 
 ### Lints and fixes files

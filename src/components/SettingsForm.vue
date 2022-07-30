@@ -1,4 +1,5 @@
 <template>
+  <h2>App settings</h2> 
   <div class="form">
     <form id="settings-form">
 

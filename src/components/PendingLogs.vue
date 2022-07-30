@@ -1,5 +1,11 @@
 <template>
-  <p>{{ pendingLogs.length }} pending logs</p>
+  <h2>Pending logs</h2> 
+  
+  <p>
+    <span v-if="pendingLogs.length == 1">{{ pendingLogs.length }} log is pending</span>
+    <span v-else-if="pendingLogs.length > 0">{{ pendingLogs.length }} logs are pending</span>
+    <span v-else>no logs are pending</span>  
+  </p>
   <button v-on:click="manualSync()" :disabled="!hasPendingLogs">
     <span v-if="syncing_">Syncing...</span>
     <span v-else>Sync manually</span>
