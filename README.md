@@ -24,6 +24,7 @@ npm run build && npx http-server dist
 ### Deploy new build to GitHub Pages presented [here](https://mullevik.github.io/yaba/)
 ```
 git checkout github-pages
+git rebase -i master
 npm run build
 git add dist -f
 git commit -m "New build for GitHub Pages"
