@@ -31,7 +31,7 @@ git commit -m "New build for GitHub Pages"
 git subtree push --prefix dist origin github-pages
 
 # or use this to force push
-git push origin `git subtree split --prefix dist github-pages`:github-pages --force)
+git push origin `git subtree split --prefix dist github-pages`:github-pages --force
 ```
 
 ### Lints and fixes files
