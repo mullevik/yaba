@@ -10,7 +10,7 @@
       <br>
       <br>
 
-      <Multiselect v-model="selectedLabels" :options="availableLabels" mode="tags" searchable="true" />
+      <Multiselect v-model="selectedLabels" :options="availableLabels" mode="tags" searchable="true" createOption="true" />
       <br>
       <br>
 
@@ -47,6 +47,7 @@ export default {
         "pharmacy", "public-transport", "subscription", "traveling",
         "music", "clothes", "fashion", "home", "fast-food",
         "patisserie", "video-games", "technology", "furniture",
+        "outdoor", "new"
       ],
       sendingState_: SENDING_STATE.READY,
     }
