@@ -7,12 +7,14 @@
 
         <section>
             <span v-if="pastLogs.length < 1">No past submissions... start with <i>New submit</i></span>
-            <div class="budget-log-item" v-else v-for="(log, index) in pastLogs" :key="index" @click="selectPastLog(index)">
-                <span class="date">{{log.pending ? "pending" : new Date(log.unixTimestamp *
-                1000).toLocaleDateString()}}</span>
+            <div class="budget-log-item" v-else v-for="(log, index) in pastLogs" :key="index"
+                @click="selectPastLog(index)">
                 <div class="labels">
+                    <span class="date">{{log.pending ? "pending" : new Date(log.unixTimestamp *
+                    1000).toLocaleDateString()}}</span>
+
                     <LabelComponent v-for="(labelName, labelId) in log.labels" :name="labelName"
-                        :color="getLabelColor(labelName)" :key="labelId" :clickable="true"></LabelComponent>
+                        :color="getLabelColor(labelName)" :key="labelId" :clickable="true" :miniature="true"></LabelComponent>
                 </div>
                 <span class="amount">{{log.amount}} {{log.currency.toUpperCase()}}</span>
             </div>
@@ -99,17 +101,16 @@ export default {
     padding: 0.6em 0.8em 0.4em 0.8em;
     cursor: pointer;
 }
-
 .date {
     display: inline-block;
-    width: 20%;
     box-sizing: border-box;
-    text-align: left;
+    margin-right: 0.8em;
+    font-size: 0.7em;
 }
 
 .labels {
     display: inline-block;
-    width: 60%;
+    width: 80%;
     box-sizing: border-box;
     text-align: left;
 }
@@ -119,9 +120,12 @@ export default {
     width: 20%;
     text-align: right;
     box-sizing: border-box;
+    font-size: 0.7em;
 }
 
 .buttons {
+    display: grid;
+    grid-template-areas: "resubmit settings submit-new";
     position: fixed;
     background-color: transparent;
     bottom: 0;
@@ -132,9 +136,9 @@ export default {
 .buttons button {
     cursor: pointer;
     border: none;
-    margin: 1em;
+    margin: 0.5em;
     font-size: 1em;
-    padding: 1em;
-    border-radius: 0.5em;
+    padding: 0.8em;
+    border-radius: 0.7em;
 }
 </style>

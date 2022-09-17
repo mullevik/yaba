@@ -30,6 +30,10 @@ export default {
     clickable: {
       type: Boolean,
       default: true
+    },
+    miniature: {
+      type: Boolean,
+      default: false,
     }
   },
   emits: ["onRemove"],
@@ -39,6 +43,7 @@ export default {
         '--bg': this.color ? this.color : DEFAULT_COLOR,
         '--right-padding': this.removable ? "0.3em" : "0.8em",
         '--cursor': this.clickable ? "pointer" : "default",
+        '--font-size': this.miniature ? "0.7em" : "1em",
       }
     }
   }
@@ -56,6 +61,7 @@ span {
   margin-right: 0.3em;
   color: hsl(211, 30%, 13%);
   cursor: var(--cursor);
+  font-size: var(--font-size);
 }
 button {
   border-radius: 50%;

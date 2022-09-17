@@ -1,7 +1,7 @@
 <template>
 
   <span >
-    <input type="text" :placeholder="placeholder" @keyup="onKeyUp" v-model="text">
+    <input type="text" :placeholder="placeholder" :value="text" @input="e => text = e.target.value" @keyup="onKeyUp">
   </span>
 
 </template>
