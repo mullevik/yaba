@@ -26,7 +26,6 @@ export const LABELS = [
     {name: "public-transport", color: COLOR.BROWN},
     {name: "subscription", color: COLOR.CYAN},
     {name: "traveling", color: COLOR.MAGENTA},
-    {name: "music", color: COLOR.PINK},
     {name: "clothes", color: COLOR.PINK},
     {name: "music", color: COLOR.PINK},
     {name: "home", color: COLOR.BLUE},
@@ -36,28 +35,6 @@ export const LABELS = [
     {name: "technology", color: COLOR.CYAN},
     {name: "outdoor", color: COLOR.BROWN},
     {name: "new", color: COLOR.GREEN},
-]
-
-export const TMP_PAST_LOGS = [
-    {
-        unixTimestamp: Math.floor(new Date().getTime() / 1000),
-        amount: 300,
-        currency: "eur",
-        labels: ["new", "food"],
-        pending: true,
-    },
-    {
-        unixTimestamp: Math.floor(new Date().getTime() / 1000),
-        amount: 100,
-        currency: "czk",
-        labels: [],
-        pending: false,
-    },
-    {
-        unixTimestamp: Math.floor(new Date().getTime() / 1000),
-        amount: 100,
-        currency: "czk",
-        labels: ["a", "b", "c", "a", "b", "c", "a", "b", "c", "a", "b", "c", "a", "b", "c", "a", "b", "c", "a", "b", "c"],
-        pending: true,
-    }
+    {name: "barber", color: COLOR.BROWN},
+    {name: "optic", color: COLOR.GREEN},
 ]

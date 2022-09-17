@@ -3,16 +3,16 @@ import mitt from 'mitt'
 const emitter = mitt()
 
 const EVENTS = {
-    NEW_PENDING_BUDGET_LOG_STORED: "NEW_PENDING_BUDGET_LOG_STORED",
+    NEW_BUDGET_LOG_STORED: "NEW_BUDGET_LOG_STORED",
 
 }
 
-export function emitPendingBudgetLogsChanged() {
-    emitter.emit(EVENTS.NEW_PENDING_BUDGET_LOG_STORED);
+export function emitBudgetLogsChanged() {
+    emitter.emit(EVENTS.NEW_BUDGET_LOG_STORED);
 }
 
 export function onBudgetLogsChanged(fn) {
-    emitter.on(EVENTS.NEW_PENDING_BUDGET_LOG_STORED, fn);
+    emitter.on(EVENTS.NEW_BUDGET_LOG_STORED, fn);
 }
 
 // export default {

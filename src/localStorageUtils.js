@@ -1,4 +1,4 @@
-import { emitPendingBudgetLogsChanged } from "@/events"
+import { emitBudgetLogsChanged } from "@/events"
 import _ from 'lodash';
 
 const LS_KEYS = {
@@ -37,7 +37,7 @@ export function setApiEndpoint(newEndpoint) {
     return localStorage.setItem(LS_KEYS.API_ENDPOINT, newEndpoint);
 }
 
-export function getPendingBudgetLogs() {
+export function getBudgetLogs() {
     const serializedPendingLogs = localStorage.getItem(LS_KEYS.PENDING_BUDGET_LOGS);
     if (serializedPendingLogs === null || serializedPendingLogs == "") {
         return [];
@@ -45,15 +45,27 @@ export function getPendingBudgetLogs() {
     return JSON.parse(serializedPendingLogs);
 }
 
-export function storePendingBudgetLog(budgetLog) {
-    const logs = getPendingBudgetLogs();
-    logs.push(budgetLog);
+const MAX_SUCCESSFUL_LOGS = 20;
+
+export function storeBudgetLog(budgetLog) {
+    const logs = getBudgetLogs();
+    logs.unshift(budgetLog);
+    const successfulLogs = logs.filter(x => !x.pending);
+    if (!budgetLog.pending && successfulLogs.length >= MAX_SUCCESSFUL_LOGS) {
+        let lastIndex = 0;
+        for (const [index, log] of logs.entries) {
+            if (!log.pending) {
+                lastIndex = index;
+            }
+        }
+        logs.splice(lastIndex, 1);
+    }
     localStorage.setItem(LS_KEYS.PENDING_BUDGET_LOGS, JSON.stringify(logs));
-    emitPendingBudgetLogsChanged();
+    emitBudgetLogsChanged();
 }
 
 export function removePendingBudgetLog(budgetLog) {
-    const logs = getPendingBudgetLogs();
+    const logs = getBudgetLogs();
     const index = logs.findIndex(otherBudgetLog => {
         return _.isEqual(otherBudgetLog, budgetLog);
     });
@@ -63,6 +75,6 @@ export function removePendingBudgetLog(budgetLog) {
     }
     logs.splice(index, 1);
     localStorage.setItem(LS_KEYS.PENDING_BUDGET_LOGS, JSON.stringify(logs));
-    emitPendingBudgetLogsChanged();
+    emitBudgetLogsChanged();
     return logs;
 }

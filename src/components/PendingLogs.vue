@@ -1,19 +1,12 @@
 <template>
-  <h2>Pending logs</h2> 
-  
-  <p>
-    <span v-if="pendingLogs.length == 1">{{ pendingLogs.length }} log is pending</span>
-    <span v-else-if="pendingLogs.length > 0">{{ pendingLogs.length }} logs are pending</span>
-    <span v-else>no logs are pending</span>  
-  </p>
-  <button v-on:click="manualSync()" :disabled="!hasPendingLogs">
+  <button style="background-color: #FFCF5A;" v-on:click="manualSync()" :disabled="!hasPendingLogs">
     <span v-if="syncing_">Syncing...</span>
-    <span v-else>Sync manually</span>
+    <span v-else>Resubmit pending ({{pendingLogs.length}})</span>
   </button>
 </template>
 
 <script>
-import { getPendingBudgetLogs, removePendingBudgetLog } from "@/localStorageUtils"
+import { getBudgetLogs, removePendingBudgetLog } from "@/localStorageUtils"
 import { sendBudgetLog } from "@/api"
 import { onBudgetLogsChanged } from "@/events";
 
@@ -22,19 +15,19 @@ export default {
   components: {},
   data() {
     return {
-      pendingLogs: getPendingBudgetLogs(),
+      pendingLogs: getBudgetLogs().filter(x => x.pending),
       syncing_: false,
     }
   },
   computed: {
     hasPendingLogs() {
-      return this.pendingLogs.length > 0;
+      return this.pendingLogs.length > 0 && !this.syncing_;
     }
   },
   mounted() {
     onBudgetLogsChanged(() => {
       console.log(`Pending logs have changed`);
-      this.pendingLogs = getPendingBudgetLogs();
+      this.pendingLogs = getBudgetLogs().filter(x => x.pending);
     });
   },
   methods: {

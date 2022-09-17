@@ -23,7 +23,7 @@ import { sendBudgetLog } from "@/api"
 import SelectedLabelsComponent from './SelectedLabelsComponent.vue'
 import AvailableLabelsComponent from './AvailableLabelsComponent.vue'
 import { LABELS } from "../models"
-import _ from 'lodash';
+import { storeBudgetLog } from "../localStorageUtils"
 
 function getAvailableLabels() {
   return LABELS;
@@ -35,7 +35,7 @@ export default {
   props: {
     pastLog: {
       type: Object,
-      default(rawProps) {
+      default() {
         return {
           amount: null,
           currency: "czk",
@@ -44,7 +44,7 @@ export default {
       }
     },
   },
-  emits: ["onSubmit"],
+  emits: ["onSubmitDone"],
   data() {
     return {
       amount: null,
@@ -99,22 +99,23 @@ export default {
       this.selectedLabels = newLabels;
     },
     submitAmount() {
+      this.ableToSubmit = false;
       const budgetLog = createBudgeLog(this.amount, this.currency, this.selectedLabels.map(x => x.name));
-      const promisedResponse = sendBudgetLog(budgetLog);
-      this.$emit("onSubmit", budgetLog, promisedResponse);
-      // .then(responseData => {
-      //   console.log("Successfully sent budget log");
-      //   console.log(responseData);
-      //   this.clearData();
-      //   this.sendingState_ = SENDING_STATE.SUCCESS;
-      // })
-      // .catch(e => {
-      //   console.error("Budget log could not have been sent");
-      //   console.error(e);
-      //   storePendingBudgetLog(budgetLog);
-      //   this.clearData();
-      //   this.sendingState_ = SENDING_STATE.FAILED;
-      // });
+      sendBudgetLog(budgetLog).then(responseData => {
+        budgetLog.pending = false;
+        console.log("Successfully sent budget log");
+        console.log(responseData);
+      })
+      .catch(e => {
+        console.error("Budget log could not have been sent");
+        console.error(e);
+        budgetLog.pending = true;
+      }).finally(() => {
+        this.clearData();
+        storeBudgetLog(budgetLog);
+        this.$emit("onSubmitDone", budgetLog);
+        this.ableToSubmit = true;
+      });
     }
   }
 }
@@ -126,11 +127,6 @@ export default {
   width: 100%;
   background-color: white;
   min-height: 8em;
-}
-
-.available-labels-section {
-  /* position: relative; */
-  /* top: var(--selected-labels-section-height); */
 }
 
 div.amount-section {
@@ -179,5 +175,6 @@ button {
   background-color: var(--submit-button-bg-color);
   width: 100%;
   padding: 0.5em;
+  cursor: pointer;
 }
 </style>
