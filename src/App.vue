@@ -22,7 +22,7 @@ export default {
     MainForm,
     SettingsForm,
     PendingLogs,
-  }
+}
 }
 </script>
 
@@ -34,5 +34,8 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+body {
+  margin: 0;
 }
 </style>

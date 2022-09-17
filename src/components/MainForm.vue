@@ -1,4 +1,8 @@
 <template>
+
+  <SelectedLabelsComponent v-model="selectedLabelsAlt"></SelectedLabelsComponent>
+  <AvailableLabelsComponent v-model="availableLabelsAlt"></AvailableLabelsComponent>
+
   <div class="form">
     <form id="main-form">
 
@@ -25,6 +29,9 @@ import Multiselect from '@vueform/multiselect'
 import { createBudgeLog } from "@/budgetUtils"
 import { storePendingBudgetLog } from "@/localStorageUtils"
 import { sendBudgetLog } from "@/api"
+import SelectedLabelsComponent from './SelectedLabelsComponent.vue'
+import AvailableLabelsComponent from './AvailableLabelsComponent.vue'
+import _ from 'lodash';
 
 const SENDING_STATE = {
   READY: "ready",
@@ -33,9 +40,17 @@ const SENDING_STATE = {
   FAILED: "failed"
 }
 
+function getAvailableLabels() {
+  const labels = [];
+  for (const i of _.range(50)) {
+    labels.push({name: `available ${i}`, color: "#41B882"});
+  }
+  return labels;
+}
+
 export default {
   name: 'MainForm',
-  components: { Multiselect },
+  components: { Multiselect, SelectedLabelsComponent, AvailableLabelsComponent },
   data() {
     return {
       amount: null,
@@ -50,6 +65,11 @@ export default {
         "outdoor", "new"
       ],
       sendingState_: SENDING_STATE.READY,
+      selectedLabelsAlt: [
+        {name: "first", color: "#41B882"},
+        {name: "second long", color: "#4A6DB2"}
+      ],
+      availableLabelsAlt: getAvailableLabels(),
     }
   },
   computed: {
