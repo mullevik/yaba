@@ -38,6 +38,7 @@ export default {
 <style scoped>
 
 input[type=text] {
+  width: 13em;
   display: inline-block;
   border: none;
   font-size: 0.95em;

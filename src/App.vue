@@ -1,27 +1,28 @@
 <template>
   <!-- <img alt="Vue logo" src="./assets/logo.png"> -->
   <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
-  <MainTitle title="yaba" description="yet another budget app"/>
-  <MainForm/>
-  <SettingsForm/>
-  <PendingLogs/>
+  <!-- <MainTitle title="yaba" description="yet another budget app"/> -->
+  <BudgetLogsComponent/>
+  <!-- <SettingsForm/>
+  <PendingLogs/> -->
 </template>
 
 <script>
 // import HelloWorld from './components/HelloWorld.vue'
 import MainTitle from './components/MainTitle.vue'
-import MainForm from './components/MainForm.vue'
+import SubmitBudgetLogComponent from './components/SubmitBudgetLogComponent.vue'
 import SettingsForm from './components/SettingsForm.vue'
 import PendingLogs from './components/PendingLogs.vue'
+import BudgetLogsComponent from "./components/BudgetLogsComponent.vue"
 
 export default {
   name: 'App',
   components: {
     // HelloWorld,
-    MainTitle,
-    MainForm,
-    SettingsForm,
-    PendingLogs,
+    // MainTitle,
+    BudgetLogsComponent,
+    // SettingsForm,
+    // PendingLogs,
 }
 }
 </script>
@@ -33,7 +34,6 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
 body {
   margin: 0;

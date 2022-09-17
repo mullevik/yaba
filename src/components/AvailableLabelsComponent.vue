@@ -1,12 +1,15 @@
 <template>
-<section>
-    <h3>Available labels:</h3>
-    <div class="labels">
-        <LabelComponent v-for="(label, index) in modelValue" :key="index"
-        :name="label.name" :color="label.color">
-        </LabelComponent>
-    </div>
-</section>
+    <section>
+        <div>
+            <h3>Available labels:</h3>
+            <input type="text" placeholder="search labels" v-model="searchText">
+        </div>
+        <div class="labels">
+            <LabelComponent v-for="(label, index) in filteredLabels" :key="index" :name="label.name" :color="label.color"
+                :clickable="true" @click="this.$emit('onLabelSelected', label.name)">
+            </LabelComponent>
+        </div>
+    </section>
 </template>
 
 <script>
@@ -15,7 +18,17 @@ export default {
     name: "AvailableLabels",
     components: { LabelComponent },
     props: ["modelValue"],
-    emits: ["update:modelValue"],
+    emits: ["update:modelValue", "onLabelSelected"],
+    computed: {
+        filteredLabels() {
+            return this.modelValue.filter(x => x.name.toLowerCase().includes(this.searchText.toLocaleLowerCase()));
+        }
+    },
+    data() {
+        return {
+            searchText: ""
+        }
+    }
 }
 </script>
 
@@ -23,8 +36,31 @@ export default {
 section {
     text-align: left;
 }
+
 div.labels {
     line-height: 1em;
     padding: 0.3em 0 0 0.3em;
+}
+
+h3 {
+    box-sizing: border-box;
+    display: inline-block;
+    width: 50%;
+}
+
+input[type=text] {
+    text-align: right;
+    box-sizing: border-box;
+    width: 50%;
+    display: inline-block;
+    border: none;
+    font-size: 0.95em;
+    background-color: transparent;
+    padding: 0.6em;
+}
+
+input[type=text]:focus {
+    outline: none;
+    background-color: transparent;
 }
 </style>

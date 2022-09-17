@@ -5,7 +5,7 @@
             <LabelComponent v-for="(label, index) in modelValue" :key="index" :name="label.name" :color="label.color"
             :removable="true" @on-remove="this.removeLabel(index)">
             </LabelComponent>
-            <FreeTextLabelComponent @on-label-submit="this.addLabel"> 
+            <FreeTextLabelComponent :placeholder="placeholder" @on-label-submit="this.addLabel"> 
             </FreeTextLabelComponent>
         </div>
     </section>
@@ -19,6 +19,11 @@ export default {
     components: { LabelComponent, FreeTextLabelComponent },
     props: ["modelValue"],
     emits: ["update:modelValue"],
+    computed: {
+        placeholder() {
+            return this.modelValue.length > 0 ? "... or type a custom label" : "choose labels or start typing";
+        }
+    },
     methods: {
         removeLabel(labelIndex) {
             this.$emit("update:modelValue", this.modelValue.filter((_, index) => index != labelIndex));
@@ -33,11 +38,17 @@ export default {
 </script>
 
 <style scoped>
+h3 {
+    margin-top: 0;
+}
+
 section {
     text-align: left;
 }
 
 div.labels {
+    display: block;
+    box-sizing: border-box;
     line-height: 1em;
     padding: 0.3em 0 0 0.3em;
 }

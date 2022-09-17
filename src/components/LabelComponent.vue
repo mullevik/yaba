@@ -8,7 +8,9 @@
 </template>
 
 <script>
-const DEFAULT_COLOR = "#41B883";
+import { COLOR } from '@/models';
+
+const DEFAULT_COLOR = COLOR.GRAY;
 
 export default {
   name: 'LabelComponent',
@@ -25,13 +27,18 @@ export default {
       default: false,
       type: Boolean
     },
+    clickable: {
+      type: Boolean,
+      default: true
+    }
   },
   emits: ["onRemove"],
   computed: {
     cssVars() {
       return {
         '--bg': this.color ? this.color : DEFAULT_COLOR,
-        '--right-padding': this.removable ? "0.3em" : "0.8em"
+        '--right-padding': this.removable ? "0.3em" : "0.8em",
+        '--cursor': this.clickable ? "pointer" : "default",
       }
     }
   }
@@ -48,6 +55,7 @@ span {
   margin-bottom: 0.3em;
   margin-right: 0.3em;
   color: hsl(211, 30%, 13%);
+  cursor: var(--cursor);
 }
 button {
   border-radius: 50%;
