@@ -42,10 +42,15 @@ input[type=text] {
   font-size: 0.95em;
   background-color: transparent;
   padding: 0.6em;
+  color: #d6f1e5ff;
 }
 
 input[type=text]:focus {
   outline: none;
   background-color: transparent;
+}
+
+input[type=text]::placeholder {
+  color: #a4b8af;
 }
 </style>

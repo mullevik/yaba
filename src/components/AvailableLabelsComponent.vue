@@ -54,6 +54,7 @@ export default {
 <style scoped>
 section {
     text-align: left;
+    padding: 0.5em;
 }
 
 div.labels {
@@ -65,6 +66,7 @@ h3 {
     box-sizing: border-box;
     display: inline-block;
     width: 50%;
+    margin: 0;
 }
 
 input[type=text] {
@@ -76,6 +78,11 @@ input[type=text] {
     font-size: 0.95em;
     background-color: transparent;
     padding: 0.6em;
+    color: #d6f1e5ff;
+}
+
+input[type=text]::placeholder {
+    color: #a4b8af;
 }
 
 input[type=text]:focus {

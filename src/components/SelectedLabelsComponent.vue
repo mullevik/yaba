@@ -44,6 +44,7 @@ h3 {
 
 section {
     text-align: left;
+    padding: 0.5em;
 }
 
 div.labels {

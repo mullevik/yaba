@@ -1,5 +1,5 @@
 <template>
-  <button style="background-color: #FFCF5A;" v-on:click="manualSync()" :disabled="!hasPendingLogs">
+  <button style="background-color: #1b4e37;" v-on:click="manualSync()" :disabled="!hasPendingLogs">
     <span v-if="syncing_">Syncing...</span>
     <span v-else>Resubmit pending ({{pendingLogs.length}})</span>
   </button>

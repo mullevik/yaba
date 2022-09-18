@@ -59,7 +59,7 @@ span {
   background-color: var(--bg);
   margin-bottom: 0.3em;
   margin-right: 0.3em;
-  color: hsl(211, 30%, 13%);
+  color: #040b08ff;
   cursor: var(--cursor);
   font-size: var(--font-size);
 }
@@ -70,7 +70,7 @@ button {
   background-color: transparent;
   border-width: 0;
   cursor: pointer;
-  color: rgba(0, 0, 0, 0.3)
+  color: #040b0890;
 }
 
 button:hover {

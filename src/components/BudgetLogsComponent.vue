@@ -22,9 +22,9 @@
 
         <section class="buttons">
             <PendingLogs></PendingLogs>
-            <button style="background-color: #4F61B6;"
+            <button style="background-color: #1b4e37;"
                 @click="() => this.showSettings_ = !this.showSettings_">Settings</button>
-            <button style="background-color: #41B882;" @click="onNewSubmit">New submit</button>
+            <button style="background-color: #41b883; color: #040b08" @click="onNewSubmit">New submit</button>
         </section>
     </div>
     <SubmitBudgetLogComponent v-if="formOpen_" :past-log="selectedPastLog" @on-submit-done="onSubmitDone">
@@ -92,12 +92,12 @@ export default {
 
 <style scoped>
 .budget-log-item {
-    border: 2px solid #41B882;
-    border-radius: 5px;
+    border-radius: 0.5em;
     box-sizing: border-box;
     margin: 0.8em;
     padding: 0.6em 0.8em 0.4em 0.8em;
     cursor: pointer;
+    background-color: #102d1f;
 }
 .date {
     display: inline-block;
@@ -132,6 +132,7 @@ export default {
 }
 
 .buttons button {
+    color: #d6f1e5;
     cursor: pointer;
     border: none;
     margin: 0.5em;

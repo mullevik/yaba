@@ -121,7 +121,7 @@ export default {
 <style scoped>
 .selected-labels-section {
   width: 100%;
-  background-color: white;
+  background-color: #102d1f;
   min-height: 8em;
 }
 
@@ -129,8 +129,33 @@ div.amount-section {
   width: 100%;
   position: fixed;
   bottom: 0;
-  background-color: white;
+  background-color: #102d1fff;
 }
+
+div.amount-section input[type=number] {
+  color: #d6f1e5;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+div.amount-section input[type=number]::placeholder {
+  color: #a4b8af;
+}
+
+div.amount-section select {
+  color: #a4b8af;
+}
+
 
 div.under-amount-section-filler {
   display: block;
