@@ -1,7 +1,7 @@
 <template>
 
   <span >
-    <input type="text" :placeholder="placeholder" :value="text" @input="e => text = e.target.value" @keyup="onKeyUp">
+    <input type="text" :placeholder="placeholder" v-model="text">
   </span>
 
 </template>
@@ -22,16 +22,15 @@ export default {
       text: "",
     }
   },
-  methods: {
-    onKeyUp (event) {
-      console.log(event);
-      if (event.key === ' ' || event.key === "Enter") {
-        this.$emit("onLabelSubmit", this.text.trim());
+  watch: {
+    text(newText) {
+      console.log(newText);
+      if (newText.trim().length > 1 && newText.endsWith(" ")) {
+        this.$emit("onLabelSubmit", newText.trim());
         this.text = "";
       }
     }
-  },
-
+  }
 }
 </script>
 
