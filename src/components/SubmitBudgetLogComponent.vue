@@ -126,7 +126,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .selected-labels-section {
-  width: 100%;
+  /* width: 100%; */
   background-color: #102d1f;
   min-height: 8em;
 }

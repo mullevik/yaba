@@ -1,6 +1,6 @@
 <template>
   <button v-on:click="manualSync()" :disabled="!hasPendingLogs">
-    <span v-if="syncing_">Syncing...</span>
+    <span v-if="syncing_"><font-awesome-icon icon="fa-solid fa-spinner" spin/></span>
     <span v-else><font-awesome-icon icon="fa-solid fa-repeat" /> <span v-if="pendingLogs.length > 0">{{pendingLogs.length}}</span></span>
   </button>
 </template>

@@ -1,6 +1,8 @@
 <template>
     <section>
-        <h3>Selected labels</h3>
+        <div>
+            <h3>Selected labels</h3>
+        </div>
         <div class="labels">
             <LabelComponent v-for="(label, index) in modelValue" :key="index" :name="label.name" :color="label.color"
             :removable="true" @on-remove="this.removeLabel(index)">
@@ -39,7 +41,9 @@ export default {
 
 <style scoped>
 h3 {
+    display: inline;
     margin-top: 0;
+    box-sizing: border-box;
 }
 
 section {

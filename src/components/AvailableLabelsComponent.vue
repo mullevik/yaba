@@ -2,7 +2,7 @@
     <section>
         <div>
             <h3>Available labels</h3>
-            <input type="text" placeholder="search labels" v-model="searchText">
+            <input type="text" placeholder="search labels" :value="searchText" @input="e => searchText = e.target.value">
         </div>
         <div class="labels">
             <LabelComponent v-for="(label, index) in filteredLabels" :key="index" :name="label.name" :color="label.color"
@@ -63,7 +63,6 @@ div.labels {
 }
 
 h3 {
-    box-sizing: border-box;
     display: inline-block;
     width: 50%;
     margin: 0;
