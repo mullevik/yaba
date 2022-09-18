@@ -57,7 +57,7 @@ function getPastLabels() {
 }
 
 function storePastLabels(labels) {
-    localStorage.setItem(LS_KEYS.PAST_LABELS, JSON.stringify([...labels, ...getPastLabels()].slice(MAX_PAST_LABEL_LOGS)));
+    localStorage.setItem(LS_KEYS.PAST_LABELS, JSON.stringify([...labels, ...getPastLabels()].slice(0, MAX_PAST_LABEL_LOGS)));
 }
 
 export function getLabelScoreMap() {
