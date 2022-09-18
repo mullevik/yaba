@@ -1,7 +1,7 @@
 <template>
     <section>
         <div>
-            <h3>Available labels:</h3>
+            <h3>Available labels</h3>
             <input type="text" placeholder="search labels" v-model="searchText">
         </div>
         <div class="labels">
@@ -78,15 +78,5 @@ input[type=text] {
     font-size: 0.95em;
     background-color: transparent;
     padding: 0.6em;
-    color: #d6f1e5ff;
-}
-
-input[type=text]::placeholder {
-    color: #a4b8af;
-}
-
-input[type=text]:focus {
-    outline: none;
-    background-color: transparent;
 }
 </style>

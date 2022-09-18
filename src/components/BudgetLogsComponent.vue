@@ -22,9 +22,9 @@
 
         <section class="buttons">
             <PendingLogs></PendingLogs>
-            <button style="background-color: #1b4e37;"
-                @click="() => this.showSettings_ = !this.showSettings_">Settings</button>
-            <button style="background-color: #41b883; color: #040b08" @click="onNewSubmit">New submit</button>
+            <button
+                @click="() => this.showSettings_ = !this.showSettings_"><font-awesome-icon icon="fa-solid fa-gear"/></button>
+            <button class="primary" @click="onNewSubmit"><font-awesome-icon icon="fa-solid fa-circle-plus"/> New expense</button>
         </section>
     </div>
     <SubmitBudgetLogComponent v-if="formOpen_" :past-log="selectedPastLog" @on-submit-done="onSubmitDone">
@@ -132,12 +132,11 @@ export default {
 }
 
 .buttons button {
-    color: #d6f1e5;
-    cursor: pointer;
+    justify-self: center;
     border: none;
     margin: 0.5em;
     font-size: 1em;
-    padding: 0.8em;
+    padding: 0.8em 1em;
     border-radius: 0.7em;
 }
 </style>

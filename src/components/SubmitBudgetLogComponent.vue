@@ -11,7 +11,9 @@
       <option value="CZK" selected>CZK</option>
       <option value="EUR">EUR</option>
     </select>
-    <button :style="cssVars" :disabled="!ableToSubmit" @click="submitAmount">Submit</button>
+    <button :style="cssVars" :disabled="!ableToSubmit" @click="submitAmount" class="primary">
+       <span v-if="pendingSubmit"><font-awesome-icon icon="fa-solid fa-spinner" spin/></span><span v-else><font-awesome-icon icon="fa-solid fa-paper-plane" /> Submit</span>
+    </button>
   </div>
   <div class="under-amount-section-filler" :style="cssVars"></div>
 
@@ -52,6 +54,7 @@ export default {
       selectedLabels: [],
       availableLabels: getAvailableLabels(),
       ableToSubmit: false,
+      pendingSubmit: false,
     }
   },
   mounted() {
@@ -80,7 +83,7 @@ export default {
   },
   watch: {
     amount: function (value) {
-      if (value !== null && value !== 0) { this.ableToSubmit = true; } else { this.ableToSubmit = false; }
+      if (value !== null && value !== 0 && value !== "") { this.ableToSubmit = true; } else { this.ableToSubmit = false; }
     }
   },
   methods: {
@@ -99,6 +102,7 @@ export default {
     },
     submitAmount() {
       this.ableToSubmit = false;
+      this.pendingSubmit = true;
       const budgetLog = createBudgeLog(this.amount, this.currency, this.selectedLabels.map(x => x.name));
       sendBudgetLog(budgetLog).then(() => {
         budgetLog.pending = false;
@@ -106,11 +110,13 @@ export default {
         console.error("Budget log could not have been sent");
         console.error(e);
         budgetLog.pending = true;
+        this.pendingSubmit = false;
       }).finally(() => {
         this.clearData();
         storeBudgetLog(budgetLog);
         this.$emit("onSubmitDone", budgetLog);
         this.ableToSubmit = true;
+        this.pendingSubmit = false;
       });
     }
   }

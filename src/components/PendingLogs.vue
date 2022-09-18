@@ -1,7 +1,7 @@
 <template>
-  <button style="background-color: #1b4e37;" v-on:click="manualSync()" :disabled="!hasPendingLogs">
+  <button v-on:click="manualSync()" :disabled="!hasPendingLogs">
     <span v-if="syncing_">Syncing...</span>
-    <span v-else>Resubmit pending ({{pendingLogs.length}})</span>
+    <span v-else><font-awesome-icon icon="fa-solid fa-repeat" /> <span v-if="pendingLogs.length > 0">{{pendingLogs.length}}</span></span>
   </button>
 </template>
 

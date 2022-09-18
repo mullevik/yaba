@@ -1,6 +1,6 @@
 <template>
     <section>
-        <h3>Selected labels:</h3>
+        <h3>Selected labels</h3>
         <div class="labels">
             <LabelComponent v-for="(label, index) in modelValue" :key="index" :name="label.name" :color="label.color"
             :removable="true" @on-remove="this.removeLabel(index)">
