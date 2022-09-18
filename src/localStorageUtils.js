@@ -4,8 +4,11 @@ import _ from 'lodash';
 const LS_KEYS = {
     API_KEY: "API_KEY",
     API_ENDPOINT: "ENDPOINT",
-    PENDING_BUDGET_LOGS: "PENDING_BUDGET_LOGS"
+    BUDGET_LOGS: "BUDGET_LOGS",
+    PAST_LABELS: "PAST_LABELS",
 };
+const MAX_SUCCESSFUL_LOGS = 20;
+const MAX_PAST_LABEL_LOGS = 40;
 
 function log(msg) {
     console.log(`LOCAL_STORAGE_UTILS ${msg}`);
@@ -38,14 +41,36 @@ export function setApiEndpoint(newEndpoint) {
 }
 
 export function getBudgetLogs() {
-    const serializedPendingLogs = localStorage.getItem(LS_KEYS.PENDING_BUDGET_LOGS);
+    const serializedPendingLogs = localStorage.getItem(LS_KEYS.BUDGET_LOGS);
     if (serializedPendingLogs === null || serializedPendingLogs == "") {
         return [];
     }
     return JSON.parse(serializedPendingLogs);
 }
 
-const MAX_SUCCESSFUL_LOGS = 20;
+function getPastLabels() {
+    const serializedPastLabels = localStorage.getItem(LS_KEYS.PAST_LABELS);
+    if (serializedPastLabels == null || serializedPastLabels == "") {
+        return [];
+    }
+    return JSON.parse(serializedPastLabels);
+}
+
+function storePastLabels(labels) {
+    localStorage.setItem(LS_KEYS.PAST_LABELS, JSON.stringify([...labels, ...getPastLabels()].slice(MAX_PAST_LABEL_LOGS)));
+}
+
+export function getLabelScoreMap() {
+    const labelScoreMap = {};
+    for (const [index, label] of getPastLabels().entries()) {
+        if (label in labelScoreMap) {
+            labelScoreMap[label] += 1. / (index + 1);
+        } else {
+            labelScoreMap[label] = 1. / (index + 1);
+        }
+    }
+    return labelScoreMap;
+}
 
 export function storeBudgetLog(budgetLog) {
     const logs = getBudgetLogs();
@@ -60,7 +85,8 @@ export function storeBudgetLog(budgetLog) {
         }
         logs.splice(lastIndex, 1);
     }
-    localStorage.setItem(LS_KEYS.PENDING_BUDGET_LOGS, JSON.stringify(logs));
+    localStorage.setItem(LS_KEYS.BUDGET_LOGS, JSON.stringify(logs));
+    storePastLabels(budgetLog.labels);
     emitBudgetLogsChanged();
 }
 
@@ -74,7 +100,7 @@ export function removePendingBudgetLog(budgetLog) {
         return logs;
     }
     logs.splice(index, 1);
-    localStorage.setItem(LS_KEYS.PENDING_BUDGET_LOGS, JSON.stringify(logs));
+    localStorage.setItem(LS_KEYS.BUDGET_LOGS, JSON.stringify(logs));
     emitBudgetLogsChanged();
     return logs;
 }

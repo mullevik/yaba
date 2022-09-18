@@ -26,14 +26,12 @@ export default {
   },
   mounted() {
     onBudgetLogsChanged(() => {
-      console.log(`Pending logs have changed`);
       this.pendingLogs = getBudgetLogs().filter(x => x.pending);
     });
   },
   methods: {
     _recursiveSync(index, pendingLogsCopy) {
       if (index >= pendingLogsCopy.length) {
-        console.log("All pending objects synced");
         this.syncing_ = false;
         return;
       }
@@ -52,7 +50,6 @@ export default {
     manualSync() {
       const pendingLogsCopy = [...this.pendingLogs];
       if (pendingLogsCopy.length < 1) {
-        console.log("No budget logs to sync manually");
         return;
       }
       this.syncing_ = true;

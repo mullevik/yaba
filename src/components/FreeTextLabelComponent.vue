@@ -24,7 +24,6 @@ export default {
   },
   watch: {
     text(newText) {
-      console.log(newText);
       if (newText.trim().length > 1 && newText.endsWith(" ")) {
         this.$emit("onLabelSubmit", newText.trim());
         this.text = "";

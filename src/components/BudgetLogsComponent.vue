@@ -64,7 +64,6 @@ export default {
     },
     mounted() {
         onBudgetLogsChanged(() => {
-            console.log(`Budget logs have changed`);
             this.pastLogs = getBudgetLogs();
         });
     },
@@ -84,8 +83,7 @@ export default {
             this.selectedPastLog = DEFAULT_PAST_BUDGET_LOG;
             this.formOpen_ = true;
         },
-        onSubmitDone(budgetLog) {
-            console.log("budget component", budgetLog);
+        onSubmitDone() {
             this.formOpen_ = false;
         }
     }

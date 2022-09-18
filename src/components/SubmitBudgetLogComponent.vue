@@ -80,7 +80,6 @@ export default {
   },
   watch: {
     amount: function (value) {
-      console.log(value)
       if (value !== null && value !== 0) { this.ableToSubmit = true; } else { this.ableToSubmit = false; }
     }
   },
@@ -101,12 +100,9 @@ export default {
     submitAmount() {
       this.ableToSubmit = false;
       const budgetLog = createBudgeLog(this.amount, this.currency, this.selectedLabels.map(x => x.name));
-      sendBudgetLog(budgetLog).then(responseData => {
+      sendBudgetLog(budgetLog).then(() => {
         budgetLog.pending = false;
-        console.log("Successfully sent budget log");
-        console.log(responseData);
-      })
-      .catch(e => {
+      }).catch(e => {
         console.error("Budget log could not have been sent");
         console.error(e);
         budgetLog.pending = true;

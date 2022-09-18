@@ -13,6 +13,9 @@
 </template>
 
 <script>
+
+
+import { getLabelScoreMap } from '@/localStorageUtils';
 import LabelComponent from './LabelComponent.vue';
 export default {
     name: "AvailableLabels",
@@ -20,13 +23,29 @@ export default {
     props: ["modelValue"],
     emits: ["update:modelValue", "onLabelSelected"],
     computed: {
+        sortedLabels() {
+            return [...this.modelValue].sort((a, b) => {
+                return a.name.localeCompare(b.name);
+            }).sort((a, b) => {
+                const aScore = (a.name in this.labelScoreMap) ? this.labelScoreMap[a.name] : 0;
+                const bScore = (b.name in this.labelScoreMap) ? this.labelScoreMap[b.name] : 0;
+                if (aScore < bScore) {
+                    return 1;
+                } else if (aScore > bScore) {
+                    return -1;
+                } else {
+                    return 0
+                }
+            });
+        },
         filteredLabels() {
-            return this.modelValue.filter(x => x.name.toLowerCase().includes(this.searchText.toLocaleLowerCase()));
+            return this.sortedLabels.filter(x => x.name.toLowerCase().includes(this.searchText.toLocaleLowerCase()));
         }
     },
     data() {
         return {
-            searchText: ""
+            searchText: "",
+            labelScoreMap: getLabelScoreMap(),
         }
     }
 }
