@@ -25,7 +25,7 @@ npm run build && npx http-server dist
 ```
 git checkout github-pages
 git rebase -i master
-npm run build
+NODE_ENV=production npm run build
 git add dist -f
 git commit -m "New build for GitHub Pages"
 git subtree push --prefix dist origin github-pages

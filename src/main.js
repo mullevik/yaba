@@ -21,12 +21,13 @@ import BudgetLogsComponent from "./components/BudgetLogsComponent.vue"
 import SettingsFormComponent from "./components/SettingsFormComponent.vue"
 import NotFoundComponent from "./components/NotFoundComponent.vue"
 const routes = [
-    { path: "/", component: BudgetLogsComponent },
-    { path: "/settings", component: SettingsFormComponent },
-    { path: "/:catchAll(.*)", component: NotFoundComponent },
+    { path: "/", component: BudgetLogsComponent, name: "home"},
+    { path: "/settings", component: SettingsFormComponent, name: "settings" },
+    { path: "/:catchAll(.*)", component: NotFoundComponent, name: "404" },
 ]
 const router = createRouter({
-    history: createWebHistory(),
+    
+    history: createWebHistory(process.env.NODE_ENV === "production" ? "/yaba/" : "/"),
     routes: routes,
 })
 

@@ -1,15 +1,15 @@
 <template>
     <nav>
-        <router-link to="/">
+        <router-link :to="{name: 'home'}">
             <font-awesome-icon icon="fa-solid fa-table-list" />
         </router-link>
-        <router-link to="/month">
+        <a>
             <font-awesome-icon icon="fa-solid fa-chart-bar" />
-        </router-link>
-        <router-link to="/overview">
+        </a>
+        <a>
             <font-awesome-icon icon="fa-solid fa-chart-line" />
-        </router-link>
-        <router-link to="/settings">
+        </a>
+        <router-link :to="{name: 'settings'}">
             <font-awesome-icon icon="fa-solid fa-gear" />
         </router-link>
     </nav>
