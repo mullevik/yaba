@@ -17,7 +17,7 @@ import {getApiKey, getApiEndpoint, setApiKey, setApiEndpoint} from "@/localStora
 import _ from 'lodash';
 
 export default {
-  name: 'SettingsForm',
+  name: 'SettingsFormComponent',
   components: { },
   data () {
     return {

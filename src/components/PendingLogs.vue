@@ -1,7 +1,11 @@
 <template>
-  <button v-on:click="manualSync()" :disabled="!hasPendingLogs">
-    <span v-if="syncing_"><font-awesome-icon icon="fa-solid fa-spinner" spin/></span>
-    <span v-else><font-awesome-icon icon="fa-solid fa-repeat" /> <span v-if="pendingLogs.length > 0">{{pendingLogs.length}}</span></span>
+  <button v-show="hasPendingLogs" v-on:click="manualSync()" :disabled="!hasPendingLogs">
+    <span v-if="syncing_">
+      <font-awesome-icon icon="fa-solid fa-spinner" spin />
+    </span>
+    <span v-else>
+      <font-awesome-icon icon="fa-solid fa-repeat" /> <span v-if="pendingLogs.length > 0">{{pendingLogs.length}}</span>
+    </span>
   </button>
 </template>
 
@@ -65,4 +69,5 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+
 </style>

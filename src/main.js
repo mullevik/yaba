@@ -11,9 +11,24 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 /* import specific icons */
-import { faGear, faCirclePlus, faRepeat, faPaperPlane, faSpinner } from '@fortawesome/free-solid-svg-icons'
-
+import { faGear, faCirclePlus, faRepeat, faPaperPlane, faSpinner, faTableList, faChartBar, faChartLine } from '@fortawesome/free-solid-svg-icons'
 /* add icons to the library */
-library.add(faGear, faCirclePlus, faRepeat, faPaperPlane, faSpinner)
+library.add(faGear, faCirclePlus, faRepeat, faPaperPlane, faSpinner, faTableList, faChartBar, faChartLine)
 
-createApp(App).component('font-awesome-icon', FontAwesomeIcon).mount('#app')
+// Vue router definitions
+import { createRouter, createWebHistory } from 'vue-router'
+import BudgetLogsComponent from "./components/BudgetLogsComponent.vue"
+import SettingsFormComponent from "./components/SettingsFormComponent.vue"
+import NotFoundComponent from "./components/NotFoundComponent.vue"
+const routes = [
+    { path: "/", component: BudgetLogsComponent },
+    { path: "/settings", component: SettingsFormComponent },
+    { path: "/:catchAll(.*)", component: NotFoundComponent },
+]
+const router = createRouter({
+    history: createWebHistory(),
+    routes: routes,
+})
+
+
+createApp(App).use(router).component('font-awesome-icon', FontAwesomeIcon).mount('#app')

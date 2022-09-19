@@ -1,12 +1,9 @@
 <template>
 
     <div v-show="!formOpen_">
-        <section v-show="showSettings_">
-            <SettingsForm></SettingsForm>
-        </section>
-
         <section>
-            <span v-if="pastLogs.length < 1">No past submissions... start with <i>New submit</i></span>
+            <span v-if="pastLogs.length < 1" style="position: relative; top: 2em;">No past submissions... <i><a href="#"
+                        @click="onNewSubmit">add new expense</a></i></span>
             <div class="budget-log-item" v-else v-for="(log, index) in pastLogs" :key="index"
                 @click="selectPastLog(index)">
                 <div class="labels">
@@ -14,7 +11,8 @@
                     1000).toLocaleDateString()}}</span>
 
                     <LabelComponent v-for="(labelName, labelId) in log.labels" :name="labelName"
-                        :color="getLabelColor(labelName)" :key="labelId" :clickable="true" :miniature="true"></LabelComponent>
+                        :color="getLabelColor(labelName)" :key="labelId" :clickable="true" :miniature="true">
+                    </LabelComponent>
                 </div>
                 <span class="amount">{{log.amount}} {{log.currency.toUpperCase()}}</span>
             </div>
@@ -22,9 +20,9 @@
 
         <section class="buttons">
             <PendingLogs></PendingLogs>
-            <button
-                @click="() => this.showSettings_ = !this.showSettings_"><font-awesome-icon icon="fa-solid fa-gear"/></button>
-            <button class="primary" @click="onNewSubmit"><font-awesome-icon icon="fa-solid fa-circle-plus"/> New expense</button>
+            <button class="primary" @click="onNewSubmit">
+                <font-awesome-icon icon="fa-solid fa-circle-plus" /> New expense
+            </button>
         </section>
     </div>
     <SubmitBudgetLogComponent v-if="formOpen_" :past-log="selectedPastLog" @on-submit-done="onSubmitDone">
@@ -36,7 +34,6 @@
 import { LABELS } from '@/models';
 import LabelComponent from './LabelComponent.vue';
 import SubmitBudgetLogComponent from './SubmitBudgetLogComponent.vue';
-import SettingsForm from './SettingsForm.vue';
 import { getBudgetLogs } from '@/localStorageUtils';
 import { onBudgetLogsChanged } from '@/events';
 import PendingLogs from './PendingLogs.vue';
@@ -52,7 +49,7 @@ const DEFAULT_PAST_BUDGET_LOG = {
 
 export default {
     name: 'BudgetLogsComponent',
-    components: { LabelComponent, SubmitBudgetLogComponent, SettingsForm, PendingLogs },
+    components: { LabelComponent, SubmitBudgetLogComponent, PendingLogs },
     data() {
         return {
             pastLogs: getBudgetLogs(),
@@ -99,6 +96,7 @@ export default {
     cursor: pointer;
     background-color: #102d1f;
 }
+
 .date {
     display: inline-block;
     box-sizing: border-box;
@@ -123,10 +121,10 @@ export default {
 
 .buttons {
     display: grid;
-    grid-template-areas: "resubmit settings submit-new";
+    grid-template-areas: "resubmit submit-new";
     position: fixed;
     background-color: transparent;
-    bottom: 0;
+    bottom: 3.4em;
     text-align: center;
     width: 100%;
 }
@@ -134,9 +132,19 @@ export default {
 .buttons button {
     justify-self: center;
     border: none;
-    margin: 0.5em;
+    margin: 1em;
     font-size: 1em;
     padding: 0.8em 1em;
     border-radius: 0.7em;
+}
+
+.buttons button:first-of-type {
+    grid-area: resubmit;
+    justify-self: start;
+}
+
+.buttons button:last-of-type {
+    grid-area: submit-new;
+    justify-self: end;
 }
 </style>

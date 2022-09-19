@@ -1,16 +1,16 @@
 <template>
-  <BudgetLogsComponent/>
+  <NavigationComponent></NavigationComponent>
+  <router-view></router-view>
 </template>
 
 <script>
-// import HelloWorld from './components/HelloWorld.vue'
-import BudgetLogsComponent from "./components/BudgetLogsComponent.vue"
+import NavigationComponent from "./components/NavigationComponent.vue"
 
 export default {
   name: 'App',
   components: {
-    BudgetLogsComponent,
-}
+    NavigationComponent,
+  }
 }
 </script>
 
@@ -50,7 +50,7 @@ button {
 
 
 button:disabled,
-button[disabled]{
+button[disabled] {
   color: #a4b8afff;
   background-color: #133322ff;
   cursor: not-allowed;
@@ -62,11 +62,8 @@ button.primary {
 }
 
 button.primary:disabled,
-button.primary[disabled]{
+button.primary[disabled] {
   color: #081610ff;
   background-color: #308962ff;
 }
-
-
-
 </style>
