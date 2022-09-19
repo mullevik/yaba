@@ -26,7 +26,7 @@ export default {
 nav {
     position: fixed;
     bottom: 0;
-    background-color: green;
+    background-color: var(--cp-secondary-light);
     display: grid;
     grid-template-areas: "nav-item nav-item nav-item nav-item";
     width: 100%;
@@ -36,6 +36,12 @@ nav a {
     display: block;
     padding: 0.5em;
     font-size: 1.5em;
-    background-color: black;
+    color: var(--cp-text-light-dimmed);
 }
+
+nav a:hover,
+ nav a.router-link-active,
+ nav a.router-link-exact-active {
+    color: var(--cp-primary);
+ }
 </style>

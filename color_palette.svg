@@ -24,9 +24,9 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
      showgrid="false"
-     inkscape:zoom="1.14017"
-     inkscape:cx="389.85414"
-     inkscape:cy="311.79561"
+     inkscape:zoom="1.6124439"
+     inkscape:cx="707.31144"
+     inkscape:cy="422.65037"
      inkscape:window-width="1920"
      inkscape:window-height="1052"
      inkscape:window-x="0"
@@ -329,6 +329,12 @@
        width="397.69289"
        height="67.358392"
        id="rect27323" />
+    <rect
+       x="161.93649"
+       y="190.45608"
+       width="397.69289"
+       height="67.358392"
+       id="rect7769" />
   </defs>
   <g
      inkscape:label="Layer 1"
@@ -342,21 +348,21 @@
        x="0"
        y="0" />
     <rect
-       style="font-variation-settings:normal;opacity:1;fill:#081610;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1.09201;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke;stop-color:#000000;stop-opacity:1"
+       style="font-variation-settings:normal;opacity:1;fill:#1e2a35;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1.09201;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke;stop-color:#000000;stop-opacity:1"
        id="rect2419"
        width="152.88123"
        height="216.21773"
        x="28.559389"
        y="40.391136" />
     <rect
-       style="font-variation-settings:normal;opacity:1;fill:#102d1f;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:2.4078;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke;stop-color:#000000;stop-opacity:1"
+       style="font-variation-settings:normal;opacity:1;fill:#263645;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:2.4078;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke;stop-color:#000000;stop-opacity:1"
        id="rect3934"
        width="152.88123"
        height="20.927376"
        x="28.559389"
        y="153.04451" />
     <rect
-       style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:#1b4e37;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.884291;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke;stop-color:#000000;stop-opacity:1"
+       style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:#34495e;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.884291;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke;stop-color:#000000;stop-opacity:1"
        id="rect2365"
        width="26.310427"
        height="16.401785"
@@ -366,33 +372,33 @@
        xml:space="preserve"
        transform="matrix(0.26458333,0,0,0.26458333,-5.8386795,-6.0123504)"
        id="text2697"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40px;line-height:1.25;font-family:serif;-inkscape-font-specification:serif;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect2699);display:inline;fill:#d6f1e5;fill-opacity:1;stroke:none"><tspan
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40px;line-height:1.25;font-family:serif;-inkscape-font-specification:serif;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect2699);display:inline;fill:#f0f3f7;fill-opacity:1;stroke:none"><tspan
          x="161.93555"
          y="225.84766"
-         id="tspan38511">Sample text</tspan></text>
+         id="tspan20341">Sample text</tspan></text>
     <rect
-       style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:#d6f1e5;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.884291;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke;stop-color:#000000;stop-opacity:1"
+       style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:#f0f3f7;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.884291;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke;stop-color:#000000;stop-opacity:1"
        id="rect2772"
        width="26.310427"
        height="16.401785"
        x="147.47275"
        y="64.145485" />
     <rect
-       style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:#040b08;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.884291;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke;stop-color:#000000;stop-opacity:1"
+       style="font-variation-settings:normal;opacity:1;fill:#070a0e;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.884291;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke;stop-color:#000000;stop-opacity:1"
        id="rect2774"
        width="26.310427"
        height="16.401785"
        x="147.47275"
        y="47.743698" />
     <rect
-       style="font-variation-settings:normal;opacity:1;fill:#102d1f;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.884291;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke;stop-color:#000000;stop-opacity:1"
+       style="font-variation-settings:normal;opacity:1;fill:#263645;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.884291;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke;stop-color:#000000;stop-opacity:1"
        id="rect2845"
        width="26.310427"
        height="16.401785"
        x="147.47275"
        y="96.949059" />
     <rect
-       style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:#102d1f;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1.67911;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke;stop-color:#000000;stop-opacity:1"
+       style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:#263645;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1.67911;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke;stop-color:#000000;stop-opacity:1"
        id="rect2847"
        width="99.235199"
        height="15.679089"
@@ -403,18 +409,18 @@
        xml:space="preserve"
        transform="matrix(0.06206837,0,0,0.06206837,30.892768,55.818582)"
        id="text2911"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40px;line-height:1.25;font-family:serif;-inkscape-font-specification:serif;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect2913);display:inline;fill:#d6f1e5;fill-opacity:1;stroke:none"><tspan
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40px;line-height:1.25;font-family:serif;-inkscape-font-specification:serif;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect2913);display:inline;fill:#f0f3f7;fill-opacity:1;stroke:none"><tspan
          x="161.93555"
          y="225.84766"
-         id="tspan38513">Date</tspan></text>
+         id="tspan20343">Date</tspan></text>
     <text
        xml:space="preserve"
        transform="matrix(0.06206837,0,0,0.06206837,110.90221,55.818582)"
        id="text2967"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40px;line-height:1.25;font-family:serif;-inkscape-font-specification:serif;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect2969);display:inline;fill:#d6f1e5;fill-opacity:1;stroke:none"><tspan
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40px;line-height:1.25;font-family:serif;-inkscape-font-specification:serif;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect2969);display:inline;fill:#f0f3f7;fill-opacity:1;stroke:none"><tspan
          x="161.93555"
          y="225.84766"
-         id="tspan38515">100 CZK</tspan></text>
+         id="tspan20345">100 CZK</tspan></text>
     <rect
        style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:#41b883;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.884291;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke;stop-color:#000000;stop-opacity:1"
        id="rect899"
@@ -423,7 +429,7 @@
        x="147.47275"
        y="128.5201" />
     <rect
-       style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:#102d1f;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1.67911;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke;stop-color:#000000;stop-opacity:1"
+       style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:#263645;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1.67911;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke;stop-color:#000000;stop-opacity:1"
        id="rect3376"
        width="99.235199"
        height="15.679089"
@@ -442,28 +448,28 @@
        xml:space="preserve"
        transform="matrix(0.06206837,0,0,0.06206837,30.892768,125.90341)"
        id="text3380"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40px;line-height:1.25;font-family:serif;-inkscape-font-specification:serif;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect3386);display:inline;fill:#d6f1e5;fill-opacity:1;stroke:none"><tspan
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40px;line-height:1.25;font-family:serif;-inkscape-font-specification:serif;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect3386);display:inline;fill:#f0f3f7;fill-opacity:1;stroke:none"><tspan
          x="161.93555"
          y="225.84766"
-         id="tspan38517">Date</tspan></text>
+         id="tspan20347">Date</tspan></text>
     <text
        xml:space="preserve"
        transform="matrix(0.10602215,0,0,0.10602215,102.13021,108.78453)"
        id="text2975"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40px;line-height:1.25;font-family:serif;-inkscape-font-specification:serif;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect2977);display:inline;fill:#040b08;fill-opacity:1;stroke:none"><tspan
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40px;line-height:1.25;font-family:serif;-inkscape-font-specification:serif;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect2977);display:inline;fill:#070a0e;fill-opacity:1;stroke:none"><tspan
          x="161.93555"
          y="225.84766"
-         id="tspan38519">Button</tspan></text>
+         id="tspan20349">Button</tspan></text>
     <text
        xml:space="preserve"
        transform="matrix(0.06206837,0,0,0.06206837,110.90221,125.90341)"
        id="text3384"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40px;line-height:1.25;font-family:serif;-inkscape-font-specification:serif;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect3388);display:inline;fill:#d6f1e5;fill-opacity:1;stroke:none"><tspan
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40px;line-height:1.25;font-family:serif;-inkscape-font-specification:serif;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect3388);display:inline;fill:#f0f3f7;fill-opacity:1;stroke:none"><tspan
          x="161.93555"
          y="225.84766"
-         id="tspan38521">100 CZK</tspan></text>
+         id="tspan20351">100 CZK</tspan></text>
     <rect
-       style="font-variation-settings:normal;opacity:1;fill:#1b4e37;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.649389;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke;stop-color:#000000;stop-opacity:1"
+       style="font-variation-settings:normal;opacity:1;fill:#34495e;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.649389;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke;stop-color:#000000;stop-opacity:1"
        id="rect3194"
        width="21.921497"
        height="10.616099"
@@ -474,12 +480,12 @@
        xml:space="preserve"
        transform="matrix(0.10602215,0,0,0.10602215,62.82488,108.78453)"
        id="text3198"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40px;line-height:1.25;font-family:serif;-inkscape-font-specification:serif;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect3200);display:inline;fill:#d6f1e5;fill-opacity:1;stroke:none"><tspan
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40px;line-height:1.25;font-family:serif;-inkscape-font-specification:serif;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect3200);display:inline;fill:#f0f3f7;fill-opacity:1;stroke:none"><tspan
          x="161.93555"
          y="225.84766"
-         id="tspan38523">Button</tspan></text>
+         id="tspan20353">Button</tspan></text>
     <rect
-       style="font-variation-settings:normal;opacity:1;fill:#1b4e37;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.649389;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke;stop-color:#000000;stop-opacity:1"
+       style="font-variation-settings:normal;opacity:1;fill:#2f4154;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.649389;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke;stop-color:#000000;stop-opacity:1"
        id="rect3202"
        width="21.921497"
        height="10.616099"
@@ -490,12 +496,12 @@
        xml:space="preserve"
        transform="matrix(0.10602215,0,0,0.10602215,24.168027,108.78453)"
        id="text3206"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40px;line-height:1.25;font-family:serif;-inkscape-font-specification:serif;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect3208);display:inline;fill:#d6f1e5;fill-opacity:1;stroke:none"><tspan
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40px;line-height:1.25;font-family:serif;-inkscape-font-specification:serif;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect3208);display:inline;fill:#f0f3f7;fill-opacity:0.498509;stroke:none"><tspan
          x="161.93555"
          y="225.84766"
-         id="tspan38525">Button</tspan></text>
+         id="tspan20355">Button</tspan></text>
     <rect
-       style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:#102d1f;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1.67911;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke;stop-color:#000000;stop-opacity:1"
+       style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:#263645;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1.67911;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke;stop-color:#000000;stop-opacity:1"
        id="rect3348"
        width="99.235199"
        height="15.679089"
@@ -506,20 +512,20 @@
        xml:space="preserve"
        transform="matrix(0.06206837,0,0,0.06206837,30.892768,78.922231)"
        id="text3352"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40px;line-height:1.25;font-family:serif;-inkscape-font-specification:serif;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect3358);display:inline;fill:#d6f1e5;fill-opacity:1;stroke:none"><tspan
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40px;line-height:1.25;font-family:serif;-inkscape-font-specification:serif;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect3358);display:inline;fill:#f0f3f7;fill-opacity:1;stroke:none"><tspan
          x="161.93555"
          y="225.84766"
-         id="tspan38527">Date</tspan></text>
+         id="tspan20357">Date</tspan></text>
     <text
        xml:space="preserve"
        transform="matrix(0.06206837,0,0,0.06206837,110.90221,78.922231)"
        id="text3356"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40px;line-height:1.25;font-family:serif;-inkscape-font-specification:serif;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect3360);display:inline;fill:#d6f1e5;fill-opacity:1;stroke:none"><tspan
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40px;line-height:1.25;font-family:serif;-inkscape-font-specification:serif;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect3360);display:inline;fill:#f0f3f7;fill-opacity:1;stroke:none"><tspan
          x="161.93555"
          y="225.84766"
-         id="tspan38529">100 CZK</tspan></text>
+         id="tspan20359">100 CZK</tspan></text>
     <rect
-       style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:#102d1f;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1.67911;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke;stop-color:#000000;stop-opacity:1"
+       style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:#263645;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1.67911;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke;stop-color:#000000;stop-opacity:1"
        id="rect3362"
        width="99.235199"
        height="15.679089"
@@ -530,18 +536,18 @@
        xml:space="preserve"
        transform="matrix(0.06206837,0,0,0.06206837,30.892768,101.17049)"
        id="text3366"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40px;line-height:1.25;font-family:serif;-inkscape-font-specification:serif;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect3372);display:inline;fill:#d6f1e5;fill-opacity:1;stroke:none"><tspan
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40px;line-height:1.25;font-family:serif;-inkscape-font-specification:serif;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect3372);display:inline;fill:#f0f3f7;fill-opacity:1;stroke:none"><tspan
          x="161.93555"
          y="225.84766"
-         id="tspan38531">Date</tspan></text>
+         id="tspan20361">Date</tspan></text>
     <text
        xml:space="preserve"
        transform="matrix(0.06206837,0,0,0.06206837,110.90221,101.17049)"
        id="text3370"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40px;line-height:1.25;font-family:serif;-inkscape-font-specification:serif;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect3374);display:inline;fill:#d6f1e5;fill-opacity:1;stroke:none"><tspan
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40px;line-height:1.25;font-family:serif;-inkscape-font-specification:serif;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect3374);display:inline;fill:#f0f3f7;fill-opacity:1;stroke:none"><tspan
          x="161.93555"
          y="225.84766"
-         id="tspan38533">100 CZK</tspan></text>
+         id="tspan20363">100 CZK</tspan></text>
     <g
        id="g3728"
        transform="translate(-14.173653,89.82682)">
@@ -558,10 +564,10 @@
          xml:space="preserve"
          transform="matrix(0.06206837,0,0,0.06206837,46.367367,56.336255)"
          id="text3726"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40px;line-height:1.25;font-family:serif;-inkscape-font-specification:serif;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect3786);display:inline;fill:#040b08;fill-opacity:1;stroke:none"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40px;line-height:1.25;font-family:serif;-inkscape-font-specification:serif;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect3786);display:inline;fill:#070a0e;fill-opacity:1;stroke:none"><tspan
            x="161.93555"
            y="225.84766"
-           id="tspan38535">label</tspan></text>
+           id="tspan20365">label</tspan></text>
     </g>
     <g
        id="g3736"
@@ -579,10 +585,10 @@
          xml:space="preserve"
          transform="matrix(0.06206837,0,0,0.06206837,46.367367,56.336255)"
          id="text3734"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40px;line-height:1.25;font-family:serif;-inkscape-font-specification:serif;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect3788);display:inline;fill:#040b08;fill-opacity:1;stroke:none"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40px;line-height:1.25;font-family:serif;-inkscape-font-specification:serif;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect3788);display:inline;fill:#070a0e;fill-opacity:1;stroke:none"><tspan
            x="161.93555"
            y="225.84766"
-           id="tspan38537">label</tspan></text>
+           id="tspan20367">label</tspan></text>
     </g>
     <g
        id="g3744"
@@ -600,10 +606,10 @@
          xml:space="preserve"
          transform="matrix(0.06206837,0,0,0.06206837,46.367367,56.336255)"
          id="text3742"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40px;line-height:1.25;font-family:serif;-inkscape-font-specification:serif;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect3790);display:inline;fill:#040b08;fill-opacity:1;stroke:none"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40px;line-height:1.25;font-family:serif;-inkscape-font-specification:serif;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect3790);display:inline;fill:#070a0e;fill-opacity:1;stroke:none"><tspan
            x="161.93555"
            y="225.84766"
-           id="tspan38539">label</tspan></text>
+           id="tspan20369">label</tspan></text>
     </g>
     <g
        id="g3752"
@@ -621,10 +627,10 @@
          xml:space="preserve"
          transform="matrix(0.06206837,0,0,0.06206837,46.367367,56.336255)"
          id="text3750"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40px;line-height:1.25;font-family:serif;-inkscape-font-specification:serif;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect3792);display:inline;fill:#040b08;fill-opacity:1;stroke:none"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40px;line-height:1.25;font-family:serif;-inkscape-font-specification:serif;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect3792);display:inline;fill:#070a0e;fill-opacity:1;stroke:none"><tspan
            x="161.93555"
            y="225.84766"
-           id="tspan38541">label</tspan></text>
+           id="tspan20371">label</tspan></text>
     </g>
     <g
        id="g3760"
@@ -642,10 +648,10 @@
          xml:space="preserve"
          transform="matrix(0.06206837,0,0,0.06206837,46.367367,56.336255)"
          id="text3758"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40px;line-height:1.25;font-family:serif;-inkscape-font-specification:serif;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect3794);display:inline;fill:#040b08;fill-opacity:1;stroke:none"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40px;line-height:1.25;font-family:serif;-inkscape-font-specification:serif;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect3794);display:inline;fill:#070a0e;fill-opacity:1;stroke:none"><tspan
            x="161.93555"
            y="225.84766"
-           id="tspan38543">label</tspan></text>
+           id="tspan20373">label</tspan></text>
     </g>
     <g
        id="g3768"
@@ -663,10 +669,10 @@
          xml:space="preserve"
          transform="matrix(0.06206837,0,0,0.06206837,46.367367,56.336255)"
          id="text3766"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40px;line-height:1.25;font-family:serif;-inkscape-font-specification:serif;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect3796);display:inline;fill:#040b08;fill-opacity:1;stroke:none"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40px;line-height:1.25;font-family:serif;-inkscape-font-specification:serif;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect3796);display:inline;fill:#070a0e;fill-opacity:1;stroke:none"><tspan
            x="161.93555"
            y="225.84766"
-           id="tspan38545">label</tspan></text>
+           id="tspan20375">label</tspan></text>
     </g>
     <g
        id="g3776"
@@ -684,10 +690,10 @@
          xml:space="preserve"
          transform="matrix(0.06206837,0,0,0.06206837,46.367367,56.336255)"
          id="text3774"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40px;line-height:1.25;font-family:serif;-inkscape-font-specification:serif;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect3798);display:inline;fill:#040b08;fill-opacity:1;stroke:none"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40px;line-height:1.25;font-family:serif;-inkscape-font-specification:serif;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect3798);display:inline;fill:#070a0e;fill-opacity:1;stroke:none"><tspan
            x="161.93555"
            y="225.84766"
-           id="tspan38547">label</tspan></text>
+           id="tspan20377">label</tspan></text>
     </g>
     <g
        id="g3784"
@@ -705,10 +711,10 @@
          xml:space="preserve"
          transform="matrix(0.06206837,0,0,0.06206837,46.367367,56.336255)"
          id="text3782"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40px;line-height:1.25;font-family:serif;-inkscape-font-specification:serif;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect3800);display:inline;fill:#040b08;fill-opacity:1;stroke:none"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40px;line-height:1.25;font-family:serif;-inkscape-font-specification:serif;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect3800);display:inline;fill:#070a0e;fill-opacity:1;stroke:none"><tspan
            x="161.93555"
            y="225.84766"
-           id="tspan38549">label</tspan></text>
+           id="tspan20379">label</tspan></text>
     </g>
     <g
        id="g3808"
@@ -726,10 +732,10 @@
          xml:space="preserve"
          transform="matrix(0.06206837,0,0,0.06206837,46.367367,56.336255)"
          id="text3806"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40px;line-height:1.25;font-family:serif;-inkscape-font-specification:serif;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect3826);display:inline;fill:#040b08;fill-opacity:1;stroke:none"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40px;line-height:1.25;font-family:serif;-inkscape-font-specification:serif;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect3826);display:inline;fill:#070a0e;fill-opacity:1;stroke:none"><tspan
            x="161.93555"
            y="225.84766"
-           id="tspan38551">label</tspan></text>
+           id="tspan20381">label</tspan></text>
     </g>
     <g
        id="g3816"
@@ -747,10 +753,10 @@
          xml:space="preserve"
          transform="matrix(0.06206837,0,0,0.06206837,46.367367,56.336255)"
          id="text3814"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40px;line-height:1.25;font-family:serif;-inkscape-font-specification:serif;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect3828);display:inline;fill:#040b08;fill-opacity:1;stroke:none"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40px;line-height:1.25;font-family:serif;-inkscape-font-specification:serif;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect3828);display:inline;fill:#070a0e;fill-opacity:1;stroke:none"><tspan
            x="161.93555"
            y="225.84766"
-           id="tspan38553">label</tspan></text>
+           id="tspan20383">label</tspan></text>
     </g>
     <g
        id="g3824"
@@ -768,10 +774,10 @@
          xml:space="preserve"
          transform="matrix(0.06206837,0,0,0.06206837,46.367367,56.336255)"
          id="text3822"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40px;line-height:1.25;font-family:serif;-inkscape-font-specification:serif;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect3830);display:inline;fill:#040b08;fill-opacity:1;stroke:none"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40px;line-height:1.25;font-family:serif;-inkscape-font-specification:serif;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect3830);display:inline;fill:#070a0e;fill-opacity:1;stroke:none"><tspan
            x="161.93555"
            y="225.84766"
-           id="tspan38555">label</tspan></text>
+           id="tspan20385">label</tspan></text>
     </g>
     <g
        id="g3838"
@@ -789,10 +795,10 @@
          xml:space="preserve"
          transform="matrix(0.06206837,0,0,0.06206837,46.367367,56.336255)"
          id="text3836"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40px;line-height:1.25;font-family:serif;-inkscape-font-specification:serif;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect3848);display:inline;fill:#040b08;fill-opacity:1;stroke:none"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40px;line-height:1.25;font-family:serif;-inkscape-font-specification:serif;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect3848);display:inline;fill:#070a0e;fill-opacity:1;stroke:none"><tspan
            x="161.93555"
            y="225.84766"
-           id="tspan38557">label</tspan></text>
+           id="tspan20387">label</tspan></text>
     </g>
     <g
        id="g3846"
@@ -810,13 +816,13 @@
          xml:space="preserve"
          transform="matrix(0.06206837,0,0,0.06206837,46.367367,56.336255)"
          id="text3844"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40px;line-height:1.25;font-family:serif;-inkscape-font-specification:serif;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect3850);display:inline;fill:#040b08;fill-opacity:1;stroke:none"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40px;line-height:1.25;font-family:serif;-inkscape-font-specification:serif;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect3850);display:inline;fill:#070a0e;fill-opacity:1;stroke:none"><tspan
            x="161.93555"
            y="225.84766"
-           id="tspan38559">label</tspan></text>
+           id="tspan20389">label</tspan></text>
     </g>
     <rect
-       style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:#102d1f;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:2.09689;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke;stop-color:#000000;stop-opacity:1"
+       style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:#263645;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:2.09689;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke;stop-color:#000000;stop-opacity:1"
        id="rect3852"
        width="152.88123"
        height="15.871773"
@@ -838,10 +844,10 @@
          xml:space="preserve"
          transform="matrix(0.06206837,0,0,0.06206837,46.367367,56.336255)"
          id="text3858"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40px;line-height:1.25;font-family:serif;-inkscape-font-specification:serif;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect3918);display:inline;fill:#040b08;fill-opacity:1;stroke:none"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40px;line-height:1.25;font-family:serif;-inkscape-font-specification:serif;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect3918);display:inline;fill:#070a0e;fill-opacity:1;stroke:none"><tspan
            x="161.93555"
            y="225.84766"
-           id="tspan38561">label</tspan></text>
+           id="tspan20391">label</tspan></text>
     </g>
     <g
        id="g3868"
@@ -859,10 +865,10 @@
          xml:space="preserve"
          transform="matrix(0.06206837,0,0,0.06206837,46.367367,56.336255)"
          id="text3866"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40px;line-height:1.25;font-family:serif;-inkscape-font-specification:serif;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect3920);display:inline;fill:#040b08;fill-opacity:1;stroke:none"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40px;line-height:1.25;font-family:serif;-inkscape-font-specification:serif;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect3920);display:inline;fill:#070a0e;fill-opacity:1;stroke:none"><tspan
            x="161.93555"
            y="225.84766"
-           id="tspan38563">label</tspan></text>
+           id="tspan20393">label</tspan></text>
     </g>
     <g
        id="g3876"
@@ -880,10 +886,10 @@
          xml:space="preserve"
          transform="matrix(0.06206837,0,0,0.06206837,46.367367,56.336255)"
          id="text3874"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40px;line-height:1.25;font-family:serif;-inkscape-font-specification:serif;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect3922);display:inline;fill:#040b08;fill-opacity:1;stroke:none"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40px;line-height:1.25;font-family:serif;-inkscape-font-specification:serif;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect3922);display:inline;fill:#070a0e;fill-opacity:1;stroke:none"><tspan
            x="161.93555"
            y="225.84766"
-           id="tspan38565">label</tspan></text>
+           id="tspan20395">label</tspan></text>
     </g>
     <g
        id="g3884"
@@ -901,10 +907,10 @@
          xml:space="preserve"
          transform="matrix(0.06206837,0,0,0.06206837,46.367367,56.336255)"
          id="text3882"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40px;line-height:1.25;font-family:serif;-inkscape-font-specification:serif;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect3924);display:inline;fill:#040b08;fill-opacity:1;stroke:none"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40px;line-height:1.25;font-family:serif;-inkscape-font-specification:serif;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect3924);display:inline;fill:#070a0e;fill-opacity:1;stroke:none"><tspan
            x="161.93555"
            y="225.84766"
-           id="tspan38567">label</tspan></text>
+           id="tspan20397">label</tspan></text>
     </g>
     <g
        id="g3892"
@@ -922,10 +928,10 @@
          xml:space="preserve"
          transform="matrix(0.06206837,0,0,0.06206837,46.367367,56.336255)"
          id="text3890"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40px;line-height:1.25;font-family:serif;-inkscape-font-specification:serif;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect3926);display:inline;fill:#040b08;fill-opacity:1;stroke:none"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40px;line-height:1.25;font-family:serif;-inkscape-font-specification:serif;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect3926);display:inline;fill:#070a0e;fill-opacity:1;stroke:none"><tspan
            x="161.93555"
            y="225.84766"
-           id="tspan38569">label</tspan></text>
+           id="tspan20399">label</tspan></text>
     </g>
     <g
        id="g3900"
@@ -943,10 +949,10 @@
          xml:space="preserve"
          transform="matrix(0.06206837,0,0,0.06206837,46.367367,56.336255)"
          id="text3898"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40px;line-height:1.25;font-family:serif;-inkscape-font-specification:serif;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect3928);display:inline;fill:#040b08;fill-opacity:1;stroke:none"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40px;line-height:1.25;font-family:serif;-inkscape-font-specification:serif;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect3928);display:inline;fill:#070a0e;fill-opacity:1;stroke:none"><tspan
            x="161.93555"
            y="225.84766"
-           id="tspan38571">label</tspan></text>
+           id="tspan20401">label</tspan></text>
     </g>
     <g
        id="g3908"
@@ -964,10 +970,10 @@
          xml:space="preserve"
          transform="matrix(0.06206837,0,0,0.06206837,46.367367,56.336255)"
          id="text3906"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40px;line-height:1.25;font-family:serif;-inkscape-font-specification:serif;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect3930);display:inline;fill:#040b08;fill-opacity:1;stroke:none"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40px;line-height:1.25;font-family:serif;-inkscape-font-specification:serif;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect3930);display:inline;fill:#070a0e;fill-opacity:1;stroke:none"><tspan
            x="161.93555"
            y="225.84766"
-           id="tspan38573">label</tspan></text>
+           id="tspan20403">label</tspan></text>
     </g>
     <g
        id="g3916"
@@ -985,19 +991,19 @@
          xml:space="preserve"
          transform="matrix(0.06206837,0,0,0.06206837,46.367367,56.336255)"
          id="text3914"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40px;line-height:1.25;font-family:serif;-inkscape-font-specification:serif;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect3932);display:inline;fill:#040b08;fill-opacity:1;stroke:none"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40px;line-height:1.25;font-family:serif;-inkscape-font-specification:serif;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect3932);display:inline;fill:#070a0e;fill-opacity:1;stroke:none"><tspan
            x="161.93555"
            y="225.84766"
-           id="tspan38575">label</tspan></text>
+           id="tspan20405">label</tspan></text>
     </g>
     <text
        xml:space="preserve"
        transform="matrix(0.26579211,0,0,0.26579211,86.206439,151.29818)"
        id="text3938"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40px;line-height:1.25;font-family:serif;-inkscape-font-specification:serif;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect3940);display:inline;fill:#d6f1e5;fill-opacity:1;stroke:none"><tspan
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40px;line-height:1.25;font-family:serif;-inkscape-font-specification:serif;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect3940);display:inline;fill:#f0f3f7;fill-opacity:1;stroke:none"><tspan
          x="161.93555"
          y="225.84766"
-         id="tspan38577">666 CZK</tspan></text>
+         id="tspan20407">666 CZK</tspan></text>
     <rect
        style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:#41b883;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:2.11807;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke;stop-color:#000000;stop-opacity:1"
        id="rect3942"
@@ -1009,17 +1015,10 @@
        xml:space="preserve"
        transform="matrix(0.29205864,0,0,0.29205864,37.523392,161.20304)"
        id="text3946"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40px;line-height:1.25;font-family:serif;-inkscape-font-specification:serif;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect3948);display:inline;fill:#040b08;fill-opacity:1;stroke:none"><tspan
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40px;line-height:1.25;font-family:serif;-inkscape-font-specification:serif;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect3948);display:inline;fill:#070a0e;fill-opacity:1;stroke:none"><tspan
          x="161.93555"
          y="225.84766"
-         id="tspan38579">Button</tspan></text>
-    <rect
-       style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:#a4b8af;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.320731;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke;stop-color:#000000;stop-opacity:1"
-       id="rect16393"
-       width="3.4611373"
-       height="16.401781"
-       x="173.78317"
-       y="64.145485" />
+         id="tspan20409">Button</tspan></text>
     <g
        id="g27321"
        transform="translate(22.863545,98.854919)">
@@ -1036,10 +1035,10 @@
          xml:space="preserve"
          transform="matrix(0.06206837,0,0,0.06206837,46.367367,56.336255)"
          id="text27319"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40px;line-height:1.25;font-family:serif;-inkscape-font-specification:serif;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect27323);display:inline;fill:#040b08;fill-opacity:1;stroke:none"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40px;line-height:1.25;font-family:serif;-inkscape-font-specification:serif;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect27323);display:inline;fill:#070a0e;fill-opacity:1;stroke:none"><tspan
            x="161.93555"
            y="225.84766"
-           id="tspan38581">label</tspan></text>
+           id="tspan20411">label</tspan></text>
     </g>
     <rect
        style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:#36996d;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.320731;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke;stop-color:#000000;stop-opacity:1"
@@ -1049,11 +1048,27 @@
        x="173.78317"
        y="128.5201" />
     <rect
-       style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:#163f2d;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.308445;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke;stop-color:#000000;stop-opacity:1"
+       style="font-variation-settings:normal;opacity:1;fill:#2f4154;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.308445;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke;stop-color:#000000;stop-opacity:1"
        id="rect38318"
        width="3.4611354"
        height="15.169258"
        x="173.78317"
        y="113.35085" />
+    <rect
+       style="font-variation-settings:normal;opacity:1;fill:#36996d;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.649389;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers fill stroke;stop-color:#000000;stop-opacity:1"
+       id="rect7763"
+       width="21.921497"
+       height="10.616099"
+       x="154.35339"
+       y="160.41988"
+       ry="2.6831734" />
+    <text
+       xml:space="preserve"
+       transform="matrix(0.10602215,0,0,0.10602215,140.81702,143.31797)"
+       id="text7767"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40px;line-height:1.25;font-family:serif;-inkscape-font-specification:serif;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect7769);display:inline;fill:#070a0e;fill-opacity:0.495493;stroke:none"><tspan
+         x="161.93555"
+         y="225.84766"
+         id="tspan20413">Button</tspan></text>
   </g>
 </svg>

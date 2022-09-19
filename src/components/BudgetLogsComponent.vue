@@ -16,6 +16,7 @@
                 </div>
                 <span class="amount">{{log.amount}} {{log.currency.toUpperCase()}}</span>
             </div>
+            <div style="height: 7.5em"></div>
         </section>
 
         <section class="buttons">
@@ -94,7 +95,7 @@ export default {
     margin: 0.8em;
     padding: 0.6em 0.8em 0.4em 0.8em;
     cursor: pointer;
-    background-color: #102d1f;
+    background-color: var(--cp-secondary-middle);
 }
 
 .date {

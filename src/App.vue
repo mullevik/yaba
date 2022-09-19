@@ -15,6 +15,19 @@ export default {
 </script>
 
 <style>
+:root {
+  --cp-primary: #41b883ff;
+  --cp-primary-dimmed: #36996dff;
+  --cp-secondary-light: #34495eff;
+  --cp-secondary-light-dimmed: #34495eff;
+  --cp-secondary-middle: #263645ff;
+  --cp-secondary-dark: #1e2a35ff;
+  --cp-text-dark: #070a0eff;
+  --cp-text-dark-dimmed: #070a0e90;
+  --cp-text-light: #f0f3f7ff;
+  --cp-text-light-dimmed: #f0f3f790;
+}
+
 #app {
   font-family: serif;
   -webkit-font-smoothing: antialiased;
@@ -25,12 +38,24 @@ export default {
 
 body {
   margin: 0;
-  color: #d6f1e5;
-  background-color: #081610;
+  color: var(--cp-text-light);
+  background-color: var(--cp-secondary-dark);
+}
+
+a {
+  color: var(--cp-primary);
+}
+
+a:visited {
+  color: var(--cp-primary-dimmed);
+}
+
+a:hover {
+  color: var(--cp-text-light);
 }
 
 input[type=text] {
-  color: #d6f1e5ff;
+  color: var(--cp-text-light);
 }
 
 input[type=text]:focus {
@@ -39,31 +64,31 @@ input[type=text]:focus {
 }
 
 input[type=text]::placeholder {
-  color: #a4b8af;
+  color: var(--cp-text-light-dimmed);
 }
 
 button {
-  color: #d6f1e5ff;
-  background-color: #1b4e37ff;
+  color: var(--cp-text-light);
+  background-color: var(--cp-secondary-light);
   cursor: pointer;
 }
 
 
 button:disabled,
 button[disabled] {
-  color: #a4b8afff;
-  background-color: #133322ff;
+  color: var(--cp-text-light-dimmed);
+  background-color: var(--cp-secondary-light-dimmed);
   cursor: not-allowed;
 }
 
 button.primary {
-  color: #040b08ff;
-  background-color: #41b883ff;
+  color: var(--cp-text-dark);
+  background-color: var(--cp-primary);
 }
 
 button.primary:disabled,
 button.primary[disabled] {
-  color: #081610ff;
-  background-color: #308962ff;
+  color: var(--cp-text-dark-dimmed);
+  background-color: var(--cp-primary-dimmed);
 }
 </style>

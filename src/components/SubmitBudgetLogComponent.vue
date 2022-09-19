@@ -75,7 +75,6 @@ export default {
   computed: {
     cssVars() {
       return {
-        '--submit-button-bg-color': "#41B882",
         '--selected-labels-section-height': "5em",
         '--amount-section-height': "20em",
       }
@@ -127,7 +126,7 @@ export default {
 <style scoped>
 .selected-labels-section {
   /* width: 100%; */
-  background-color: #102d1f;
+  background-color: var(--cp-secondary-middle);
   min-height: 8em;
 }
 
@@ -135,11 +134,11 @@ div.amount-section {
   width: 100%;
   position: fixed;
   bottom: 0;
-  background-color: #102d1fff;
+  background-color: var(--cp-secondary-middle);
 }
 
 div.amount-section input[type=number] {
-  color: #d6f1e5;
+  color: var(--cp-text-light-dimmed);
 }
 
 /* Chrome, Safari, Edge, Opera */
@@ -155,11 +154,11 @@ input[type=number] {
 }
 
 div.amount-section input[type=number]::placeholder {
-  color: #a4b8af;
+  color: var(--cp-text-light-dimmed);
 }
 
 div.amount-section select {
-  color: #a4b8af;
+  color: var(--cp-text-light-dimmed);
 }
 
 
@@ -199,7 +198,6 @@ button {
   display: block;
   border: none;
   font-size: 1.5em;
-  background-color: var(--submit-button-bg-color);
   width: 100%;
   padding: 0.5em;
   cursor: pointer;
