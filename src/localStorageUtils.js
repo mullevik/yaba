@@ -7,7 +7,7 @@ const LS_KEYS = {
     BUDGET_LOGS: "BUDGET_LOGS",
     PAST_LABELS: "PAST_LABELS",
 };
-const MAX_SUCCESSFUL_LOGS = 20;
+const MAX_SUCCESSFUL_LOGS = 40;
 const MAX_PAST_LABEL_LOGS = 40;
 
 function log(msg) {
@@ -78,7 +78,7 @@ export function storeBudgetLog(budgetLog) {
     const successfulLogs = logs.filter(x => !x.pending);
     if (!budgetLog.pending && successfulLogs.length >= MAX_SUCCESSFUL_LOGS) {
         let lastIndex = 0;
-        for (const [index, log] of logs.entries) {
+        for (const [index, log] of logs.entries()) {
             if (!log.pending) {
                 lastIndex = index;
             }

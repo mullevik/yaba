@@ -113,9 +113,9 @@ export default {
       }).finally(() => {
         this.clearData();
         storeBudgetLog(budgetLog);
-        this.$emit("onSubmitDone", budgetLog);
         this.ableToSubmit = true;
         this.pendingSubmit = false;
+        this.$emit("onSubmitDone", budgetLog);
       });
     }
   }
