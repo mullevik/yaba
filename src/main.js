@@ -18,10 +18,12 @@ library.add(faGear, faCirclePlus, faRepeat, faPaperPlane, faSpinner, faTableList
 // Vue router definitions
 import { createRouter, createWebHistory } from 'vue-router'
 import BudgetLogsComponent from "./components/BudgetLogsComponent.vue"
+import MonthlyComponent from "./components/MonthlyComponent.vue"
 import SettingsFormComponent from "./components/SettingsFormComponent.vue"
 import NotFoundComponent from "./components/NotFoundComponent.vue"
 const routes = [
     { path: "/", component: BudgetLogsComponent, name: "home"},
+    { path: "/monthly", component: MonthlyComponent, name: "monthly"},
     { path: "/settings", component: SettingsFormComponent, name: "settings" },
     { path: "/:catchAll(.*)", component: NotFoundComponent, name: "404" },
 ]

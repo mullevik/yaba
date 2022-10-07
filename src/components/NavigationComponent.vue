@@ -3,9 +3,9 @@
         <router-link :to="{name: 'home'}">
             <font-awesome-icon icon="fa-solid fa-table-list" />
         </router-link>
-        <a>
+        <router-link :to="{name: 'monthly'}">
             <font-awesome-icon icon="fa-solid fa-chart-bar" />
-        </a>
+        </router-link>
         <a>
             <font-awesome-icon icon="fa-solid fa-chart-line" />
         </a>
