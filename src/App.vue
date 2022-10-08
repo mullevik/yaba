@@ -71,6 +71,10 @@ button {
   color: var(--cp-text-light);
   background-color: var(--cp-secondary-light);
   cursor: pointer;
+  font-size: 1em;
+  padding: 0.8em 1em;
+  border: none;
+  border-radius: 0.7em;
 }
 
 

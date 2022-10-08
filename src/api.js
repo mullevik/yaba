@@ -14,6 +14,16 @@ function buildRequestBody(budgetLog, apiKey) {
     }
 }
 
+function getJSONBody(response) {
+    log(`received response with status ${response.status}`);
+    if (!response.ok) {
+        const e = new Error("Received non-2xx response from API");
+        e.response = response;
+        throw e;
+    }
+    return response.json();
+}
+
 export function sendBudgetLog(budgetLog) {
     const apiEndpoint = getApiEndpoint();
     if (apiEndpoint === null || apiEndpoint == "") {
@@ -36,21 +46,26 @@ export function sendBudgetLog(budgetLog) {
         },
         redirect: "follow",
         body: body,
+    }).then(response => getJSONBody(response)).then(responseData => {
+        log(`received response body ${JSON.stringify(responseData)}`);
+        if (!("status" in responseData) || responseData["status"] != "ok") {
+            throw new Error("status == ok not found in response body");
+        }
+        return responseData;
     })
-        .then(response => {
-            log(`received response with status ${response.status}`);
-            if (! response.ok) {
-                const e = new Error("Received non-2xx response from API");
-                e.response = response;
-                throw e;
-            }
-            return response.json();
-        })
-        .then(responseData => {
-            log(`received response body ${JSON.stringify(responseData)}`);
-            if (!("status" in responseData) || responseData["status"] != "ok") {
-                throw new Error("status == ok not found in response body");
-            }
-            return responseData;
-        })
+}
+
+export function getMonthlyLogs(year, month) {
+    const apiEndpoint = getApiEndpoint();
+    if (apiEndpoint === null || apiEndpoint == "") {
+        log("no endpoint");
+        Promise.reject(new Error("No API Endpoint set in client settings"))
+    }
+    log(`sending request to ${apiEndpoint} with ?year=${year} ?month=${month}`);
+
+    return fetch(`${apiEndpoint}?` + new URLSearchParams({year: year, month: month}))
+    .then(response => getJSONBody(response)).then(responseData => {
+        log(`received response body ${JSON.stringify(responseData)}`);
+        return responseData;
+    });
 }

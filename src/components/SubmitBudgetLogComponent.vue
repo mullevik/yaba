@@ -196,10 +196,10 @@ select {
 
 button {
   display: block;
-  border: none;
   font-size: 1.5em;
   width: 100%;
   padding: 0.5em;
   cursor: pointer;
+  border-radius: 0;
 }
 </style>

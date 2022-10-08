@@ -46,4 +46,6 @@ export const LABELS = [
     {name: "new", color: COLOR.GREEN},
     {name: "barber", color: COLOR.BROWN},
     {name: "optic", color: COLOR.GREEN},
+    {name: "health", color: COLOR.RED},
+    {name: "gift", color: COLOR.MAGENTA},
 ]

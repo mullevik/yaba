@@ -11,9 +11,10 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 /* import specific icons */
-import { faGear, faCirclePlus, faRepeat, faPaperPlane, faSpinner, faTableList, faChartBar, faChartLine } from '@fortawesome/free-solid-svg-icons'
+import { faGear, faCirclePlus, faRepeat, faPaperPlane, faSpinner, faTableList, faChartBar, faChartLine, faArrowRight, faArrowLeft } 
+from '@fortawesome/free-solid-svg-icons'
 /* add icons to the library */
-library.add(faGear, faCirclePlus, faRepeat, faPaperPlane, faSpinner, faTableList, faChartBar, faChartLine)
+library.add(faGear, faCirclePlus, faRepeat, faPaperPlane, faSpinner, faTableList, faChartBar, faChartLine, faArrowRight, faArrowLeft)
 
 // Vue router definitions
 import { createRouter, createWebHistory } from 'vue-router'

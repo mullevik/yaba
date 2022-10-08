@@ -132,11 +132,7 @@ export default {
 
 .buttons button {
     justify-self: center;
-    border: none;
     margin: 1em;
-    font-size: 1em;
-    padding: 0.8em 1em;
-    border-radius: 0.7em;
 }
 
 .buttons button:first-of-type {
@@ -147,5 +143,11 @@ export default {
 .buttons button:last-of-type {
     grid-area: submit-new;
     justify-self: end;
+}
+
+@media screen and (min-width: 1000px) {
+  section {
+    font-size: 2em;
+  }
 }
 </style>
