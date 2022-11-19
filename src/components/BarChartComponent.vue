@@ -53,6 +53,7 @@ export default {
             animationDuration: 500,
             animationStepDuration: 100,
             isLandscape: true,
+            barHeight: 50,
         }
     },
     methods: {
@@ -107,9 +108,6 @@ export default {
         },
         svgHeight() {
             return this.data.length * this.barHeight;
-        },
-        barHeight() {
-            return this.isLandscape ? 50 : 80;
         },
         yScale() {
             return d3.scaleBand().range([0, this.svgHeight]).padding(0.1).domain(this.data.map((d) => d.label));
