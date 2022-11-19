@@ -12,19 +12,19 @@
             <g>
                 <text v-for="item in data" class="label-text" :key="item.label" :x="0"
                     :y="yScale(item.label) + yScale.bandwidth() / 2" dx="0.5em" dy="0.25em"
-                    :font-size="isLandscape ? '1em' : '2em'" fill-opacity="0">{{ item.label }}</text>
+                    font-size="1em" fill-opacity="0">{{ item.label }}</text>
             </g>
             <g>
                 <g v-for="item in data" :key="item.label">
                     <text v-if="item.amount > 0.6 * this.dataMax" class="dark amount-text" :x="xScale(item.amount)"
                         :y="yScale(item.label) + yScale.bandwidth() / 2" dx="-0.5em" dy="0.25em" text-anchor="end"
-                        fill-opacity="0" :font-size="isLandscape ? '1em' : '2em'">{{ item.amount.toLocaleString() }} {{
+                        fill-opacity="0" font-size="1em">{{ item.amount.toLocaleString() }} {{
                                 this.currency
                         }}</text>
 
                     <text v-else class="light amount-text" :x="xScale(item.amount)"
                         :y="yScale(item.label) + yScale.bandwidth() / 2" dx="0.5em" dy="0.25em" text-anchor="start"
-                        fill-opacity="0" :font-size="isLandscape ? '1em' : '2em'">{{ item.amount.toLocaleString() }} {{
+                        fill-opacity="0" font-size="1em">{{ item.amount.toLocaleString() }} {{
                                 this.currency
                         }}</text>
                 </g>
