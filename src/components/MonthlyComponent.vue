@@ -35,8 +35,8 @@ function transform(data) {
 
     const aggregatedResults = {};
     for (const row of data["rows"]) {
-        const labels = row[3];
-        const amount = row[1];
+        const labels = row[1];
+        const amount = row[0];
         for (const label of labels.split(" ")) {
             const cleanLabel = cleanLabelName(label);
             aggregatedResults[cleanLabel] = cleanLabel in aggregatedResults ? aggregatedResults[cleanLabel] + amount : amount;

@@ -17,7 +17,7 @@ from '@fortawesome/free-solid-svg-icons'
 library.add(faGear, faCirclePlus, faRepeat, faPaperPlane, faSpinner, faTableList, faChartBar, faChartLine, faArrowRight, faArrowLeft)
 
 // Vue router definitions
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHashHistory } from 'vue-router'
 import BudgetLogsComponent from "./components/BudgetLogsComponent.vue"
 import MonthlyComponent from "./components/MonthlyComponent.vue"
 import SettingsFormComponent from "./components/SettingsFormComponent.vue"
@@ -29,8 +29,7 @@ const routes = [
     { path: "/:catchAll(.*)", component: NotFoundComponent, name: "404" },
 ]
 const router = createRouter({
-    
-    history: createWebHistory(process.env.NODE_ENV === "production" ? "/yaba/" : "/"),
+    history: createWebHashHistory(process.env.NODE_ENV === "production" ? "/yaba/" : "/"),
     routes: routes,
 })
 
