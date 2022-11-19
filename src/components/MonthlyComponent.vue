@@ -12,17 +12,17 @@
             <font-awesome-icon icon="fa-solid fa-spinner" spin/>
             obtaining data for {{selectedDate.toLocaleDateString(getLocale(), {month: 'long'})}} {{selectedDate.getFullYear()}}
         </div>
-        <div class="info-note" v-if="monthlyData.length > 0">
-            {{this.total.toLocaleString()}} {{this.currency}} spent in total
+        <div v-if="monthlyData.length > 0 && !isFetching">
+            <div class="info-note">{{this.total.toLocaleString()}} {{this.currency}} spent in total</div>
+            <BarChartComponent :data="this.monthlyData" :currency="this.currency"></BarChartComponent>
         </div>
-        <svg id="monthly-labels"></svg>
         
     </div>
 </template>
 <script>
 import { COLOR, LABELS } from '@/models';
-import * as d3 from 'd3';
 import { getMonthlyLogs } from '@/api'
+import BarChartComponent from './BarChartComponent.vue';
 
 const LABEL_COLOR_MAP = {}
 for (const label of LABELS) {
@@ -48,10 +48,10 @@ function transform(data) {
     for (const [key, value] of Object.entries(aggregatedResults)) {
         results.push({ "label": key, "amount": value, "color": key in LABEL_COLOR_MAP ? LABEL_COLOR_MAP[key] : COLOR.GRAY });
     }
-    return results.sort((a, b) => a["amount"] > b["amount"] ? 1 : (a["amount"] < b["amount"] ? -1 : 0));
+    return results.sort((a, b) => a["amount"] > b["amount"] ? -1 : (a["amount"] < b["amount"] ? 1 : 0));
 }
 export default {
-    name: 'MonthlyComponent',
+    name: "MonthlyComponent",
     mounted() {
         this.fetchMonthlyData();
     },
@@ -62,7 +62,7 @@ export default {
             monthlyData: [],
             isFetching: false,
             currency: ",-",
-        }
+        };
     },
     computed: {
         hasNextMonth() {
@@ -77,10 +77,6 @@ export default {
         selectedDate(newDate, oldDate) {
             this.fetchMonthlyData();
         },
-        // eslint-disable-next-line
-        monthlyData(newMonthlyData, oldMonthlyData) {
-            this.renderData(newMonthlyData);
-        }
     },
     methods: {
         getLocale() {
@@ -92,7 +88,8 @@ export default {
             const newDate = new Date(this.selectedDate.getTime());
             if (newDate.getMonth() != 0) {
                 newDate.setMonth(this.selectedDate.getMonth() - 1);
-            } else {
+            }
+            else {
                 newDate.setMonth(11);
                 newDate.setFullYear(this.selectedDate.getFullYear() - 1);
             }
@@ -102,14 +99,14 @@ export default {
             const newDate = new Date(this.selectedDate.getTime());
             if (newDate.getMonth() != 11) {
                 newDate.setMonth(this.selectedDate.getMonth() + 1);
-            } else {
+            }
+            else {
                 newDate.setMonth(0);
                 newDate.setFullYear(this.selectedDate.getFullYear() + 1);
             }
             this.selectedDate = newDate;
         },
         fetchMonthlyData() {
-            this.destroyData();
             this.isFetching = true;
             getMonthlyLogs(this.selectedDate.getFullYear(), this.selectedDate.getMonth()).then(responseData => {
                 this.monthlyData = transform(responseData);
@@ -120,94 +117,12 @@ export default {
                 this.isFetching = false;
             });
         },
-        destroyData() {
-            const svg = d3.select("#monthly-labels");
-            svg.selectAll("*").remove();  // fixme: this is a bad way of doing the rendering... it should react to changes instead of nuking everything and then showing it again
-        },
-        renderData(data) {
-            const width = 1000;
-            const labelNameWidth = width / 5;
-            const height = data.length * 50;
-            const svg = d3.select("#monthly-labels")
-                .attr("viewBox", `0 0 ${width} ${height}`);
-            const maxValue = d3.max(data, (d) => d.amount);
-
-            const yScale = d3.scaleBand().range([height, 0]).padding(0.1);
-            const xScale = d3.scaleLinear().range([labelNameWidth + 1, width]);
-
-            yScale.domain(data.map((d) => d.label));
-            xScale.domain([0, maxValue]);
-            svg.selectAll("rect")
-                .data(data)
-                .join("rect")
-                .attr("class", "data-bar")
-                .attr("fill", d => d.color)
-                .attr("x", xScale(0))
-                .attr("y", (d) => yScale(d.label))
-                .attr("height", yScale.bandwidth())
-                .attr("width", (d) => xScale(d.amount) - xScale(0));
-
-            svg.append("g").selectAll("rect")
-                .data(data)
-                .join("rect")
-                .attr("class", "under-label-bar")
-                .attr("fill", d => d.color)
-                .attr("x", 0)
-                .attr("y", (d) => yScale(d.label))
-                .attr("height", yScale.bandwidth())
-                .attr("width", labelNameWidth);
-
-            svg.append("g")
-                .attr("class", "label-text")
-                .attr("text-anchor", "start")
-                .attr("font-family", "sans-serif")
-                .attr("font-size", "1em")
-                .selectAll("text")
-                .data(data)
-                .join("text")
-                .attr("x", 0)
-                .attr("y", d => yScale(d.label) + yScale.bandwidth() / 2)
-                .attr("dx", "0.5em")
-                .attr("dy", "0.25em")
-                .text(d => d.label);
-
-            svg.append("g")
-                .attr("class", "amount-text")
-                .attr("font-family", "sans-serif")
-                .attr("font-size", "1em")
-                .selectAll("text")
-                .attr("text-anchor", "start")
-                .data(data)
-                .join("text")
-                // .filter(d => d.amount <= maxValue / 2)
-                .attr("x", d => xScale(d.amount))
-                .attr("y", d => yScale(d.label) + yScale.bandwidth() / 2)
-                .attr("dx", "0.5em")
-                .attr("dy", "0.25em")
-                .text(d => d.amount)
-                .call(selection => selection
-                    .filter(d => d.amount > 0.6 * maxValue)
-                    .attr("text-anchor", "end")
-                    .attr("x", d => xScale(d.amount))
-                    .attr("y", d => yScale(d.label) + yScale.bandwidth() / 2)
-                    .attr("dx", "-0.5em")
-                    .attr("dy", "0.25em")
-                    .attr("fill", "var(--cp-text-dark)")
-                );
-        }
     },
+    components: { BarChartComponent }
 }
 </script>
 
 <style>
-.amount-text {
-    fill: var(--cp-text-light);
-}
-
-.label-text {
-    fill: var(--cp-text-dark);
-}
-
 .info-note {
     color: var(--cp-text-light-dimmed);
     font-size: 1em;
