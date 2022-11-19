@@ -16,7 +16,6 @@
                 </div>
                 <span class="amount">{{log.amount}} {{log.currency.toUpperCase()}}</span>
             </div>
-            <div style="height: 7.5em"></div>
         </section>
 
         <section class="buttons">

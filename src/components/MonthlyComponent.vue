@@ -14,8 +14,6 @@
         </div>
         <svg id="monthly-labels"></svg>
     </div>
-    <div style="height: 7.5em"></div>
-
 </template>
 <script>
 import { COLOR, LABELS } from '@/models';

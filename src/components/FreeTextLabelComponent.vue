@@ -1,6 +1,6 @@
 <template>
 
-  <span >
+  <span>
     <input type="text" :placeholder="placeholder" v-model="text">
   </span>
 
@@ -16,7 +16,7 @@ export default {
       type: String
     },
   },
-  emits: ["onLabelSubmit"],
+  emits: ["onLabelSubmit", "onTextChanged"],
   data() {
     return {
       text: "",
@@ -24,7 +24,8 @@ export default {
   },
   watch: {
     text(newText) {
-      if (newText.trim().length > 1 && newText.endsWith(" ")) {
+      this.$emit("onTextChanged", newText.trim());
+      if (newText.trim().length > 0 && newText.endsWith(" ")) {
         this.$emit("onLabelSubmit", newText.trim());
         this.text = "";
       }
@@ -34,7 +35,6 @@ export default {
 </script>
 
 <style scoped>
-
 input[type=text] {
   width: 13em;
   display: inline-block;

@@ -1,14 +1,11 @@
 <template>
     <section>
-        <div>
-            <h3>Available labels</h3>
-            <input type="text" placeholder="search labels" :value="searchText" @input="e => searchText = e.target.value">
-        </div>
-        <div class="labels">
+        <div class="labels" v-if="filteredLabels.length > 0">
             <LabelComponent v-for="(label, index) in filteredLabels" :key="index" :name="label.name" :color="label.color"
                 :clickable="true" @click="this.$emit('onLabelSelected', label.name)">
             </LabelComponent>
         </div>
+        <div v-else>no available labels found (hit space to add new one)</div>
     </section>
 </template>
 
@@ -17,14 +14,20 @@
 
 import { getLabelScoreMap } from '@/localStorageUtils';
 import LabelComponent from './LabelComponent.vue';
+
 export default {
     name: "AvailableLabels",
     components: { LabelComponent },
-    props: ["modelValue"],
-    emits: ["update:modelValue", "onLabelSelected"],
+    props: {
+        searchText: {
+            default: "",
+        },
+        availableLabels: {},
+    },
+    emits: ["onLabelSelected"],
     computed: {
         sortedLabels() {
-            return [...this.modelValue].sort((a, b) => {
+            return [...this.availableLabels].sort((a, b) => {
                 return a.name.localeCompare(b.name);
             }).sort((a, b) => {
                 const aScore = (a.name in this.labelScoreMap) ? this.labelScoreMap[a.name] : 0;
@@ -39,12 +42,13 @@ export default {
             });
         },
         filteredLabels() {
+            console.log(this.searchText);
+            if (this.searchText.trim().length == 0) {return this.sortedLabels}
             return this.sortedLabels.filter(x => x.name.toLowerCase().includes(this.searchText.toLocaleLowerCase()));
         }
     },
     data() {
         return {
-            searchText: "",
             labelScoreMap: getLabelScoreMap(),
         }
     }

@@ -1,9 +1,6 @@
 <template>
-  <SelectedLabelsComponent v-model="selectedLabels" class="selected-labels-section" :style="cssVars">
-  </SelectedLabelsComponent>
-  <AvailableLabelsComponent v-model="availableLabels" @on-label-selected="this.selectLabel"
-    class="available-labels-section" :style="cssVars">
-  </AvailableLabelsComponent>
+  <LabelSelectionComponent v-model="selectedLabels" :available-labels="availableLabels" class="selected-labels-section" :style="cssVars">
+  </LabelSelectionComponent>
 
   <div class="amount-section">
     <input ref="inputAmount" type="number" name="amount" id="input-amount" v-model="amount" placeholder="0">
@@ -22,10 +19,9 @@
 <script>
 import { createBudgeLog } from "@/budgetUtils"
 import { sendBudgetLog } from "@/api"
-import SelectedLabelsComponent from './SelectedLabelsComponent.vue'
-import AvailableLabelsComponent from './AvailableLabelsComponent.vue'
-import { LABELS } from "../models"
+import LabelSelectionComponent from './LabelSelectionComponent.vue'
 import { storeBudgetLog } from "../localStorageUtils"
+import { LABELS } from "../models"
 
 function getAvailableLabels() {
   return LABELS;
@@ -33,7 +29,7 @@ function getAvailableLabels() {
 
 export default {
   name: 'SubmitBudgetLogComponent',
-  components: { SelectedLabelsComponent, AvailableLabelsComponent },
+  components: { LabelSelectionComponent },
   props: {
     pastLog: {
       type: Object,
@@ -90,15 +86,6 @@ export default {
       this.amount = null,
         this.selectedLabels = [];
     },
-    selectLabel(name) {
-      const newLabels = this.selectedLabels.map(x => x);
-      const chosenLabels = this.availableLabels.filter(x => x.name === name);
-      if (chosenLabels.length !== 1) {
-        console.warn(`Label with name ${name} not found in available labels.`)
-      }
-      newLabels.push(chosenLabels[0]);
-      this.selectedLabels = newLabels;
-    },
     submitAmount() {
       this.ableToSubmit = false;
       this.pendingSubmit = true;
@@ -127,7 +114,6 @@ export default {
 .selected-labels-section {
   /* width: 100%; */
   background-color: var(--cp-secondary-middle);
-  min-height: 8em;
 }
 
 div.amount-section {
@@ -144,14 +130,9 @@ div.amount-section input[type=number] {
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
   margin: 0;
 }
 
-/* Firefox */
-input[type=number] {
-  -moz-appearance: textfield;
-}
 
 div.amount-section input[type=number]::placeholder {
   color: var(--cp-text-light-dimmed);
