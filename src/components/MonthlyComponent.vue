@@ -12,7 +12,11 @@
             <font-awesome-icon icon="fa-solid fa-spinner" spin/>
             obtaining data for {{selectedDate.toLocaleDateString(getLocale(), {month: 'long'})}} {{selectedDate.getFullYear()}}
         </div>
+        <div class="info-note" v-if="monthlyData.length > 0">
+            {{this.total.toLocaleString()}} {{this.currency}} spent in total
+        </div>
         <svg id="monthly-labels"></svg>
+        
     </div>
 </template>
 <script>
@@ -57,11 +61,15 @@ export default {
             selectedDate: new Date(),
             monthlyData: [],
             isFetching: false,
+            currency: ",-",
         }
     },
     computed: {
         hasNextMonth() {
             return ((this.selectedDate.getMonth() < this.currentDate.getMonth()) && (this.selectedDate.getFullYear() <= this.currentDate.getFullYear()));
+        },
+        total() {
+            return this.monthlyData.map(x => x["amount"]).reduce((a, b) => a + b, 0);
         }
     },
     watch: {
@@ -105,6 +113,7 @@ export default {
             this.isFetching = true;
             getMonthlyLogs(this.selectedDate.getFullYear(), this.selectedDate.getMonth()).then(responseData => {
                 this.monthlyData = transform(responseData);
+                this.currency = responseData["currency"];
             }).catch(() => {
                 this.monthlyData = [];
             }).finally(() => {
@@ -191,14 +200,6 @@ export default {
 </script>
 
 <style>
-.under-label-bar {
-    /* fill: rgba(77, 207, 51, 0.753); */
-}
-
-.data-bar {
-    /* fill: rgba(95, 36, 36, 0.438); */
-}
-
 .amount-text {
     fill: var(--cp-text-light);
 }
