@@ -1,7 +1,7 @@
 <template>
 
   <span>
-    <input type="text" :placeholder="placeholder" v-model="text">
+    <input type="text" :placeholder="placeholder" :value="text" @input="e => text = e.target.value">
   </span>
 
 </template>

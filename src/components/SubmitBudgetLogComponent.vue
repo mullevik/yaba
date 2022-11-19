@@ -1,5 +1,5 @@
 <template>
-  <LabelSelectionComponent v-model="selectedLabels" :available-labels="availableLabels" class="selected-labels-section" :style="cssVars">
+  <LabelSelectionComponent v-model="selectedLabels" :available-labels="availableLabels" class="selected-labels-section" :style="cssVars" :always-expanded="true">
   </LabelSelectionComponent>
 
   <div class="amount-section">
