@@ -24,8 +24,6 @@ export default {
 
 <style scoped>
 nav {
-    position: fixed;
-    bottom: 0;
     background-color: var(--cp-secondary-light);
     display: grid;
     grid-template-areas: "nav-item nav-item nav-item nav-item";

@@ -1,6 +1,10 @@
 <template>
-  <NavigationComponent></NavigationComponent>
-  <router-view></router-view>
+  <div class="content">
+    <router-view></router-view>
+  </div>
+  <div class="menu">
+    <NavigationComponent></NavigationComponent>
+  </div>
 </template>
 
 <script>
@@ -26,6 +30,7 @@ export default {
   --cp-text-dark-dimmed: #070a0e90;
   --cp-text-light: #f0f3f7ff;
   --cp-text-light-dimmed: #f0f3f790;
+  --menu-height: 50px;
 }
 
 #app {
@@ -36,10 +41,26 @@ export default {
   font-size: 1em;
 }
 
+div.content {
+  height: calc(100vh - var(--menu-height));
+  overflow-y: auto;
+}
+
+div.menu {
+  height: var(--menu-height);
+  overflow: hidden;
+}
+
 body {
   margin: 0;
+  box-sizing: content-box;
   color: var(--cp-text-light);
   background-color: var(--cp-secondary-dark);
+}
+
+section {
+  box-sizing: content-box;
+  overflow: auto;
 }
 
 a {
