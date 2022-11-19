@@ -20,7 +20,7 @@ import LabelComponent from './LabelComponent.vue';
 import FreeTextLabelComponent from './FreeTextLabelComponent.vue';
 import AvailableLabelsComponent from './AvailableLabelsComponent.vue'
 export default {
-    name: "SelectedLabelsComponent",
+    name: "LabelSelectionComponent",
     components: { LabelComponent, FreeTextLabelComponent, AvailableLabelsComponent },
     props: {
         modelValue: {

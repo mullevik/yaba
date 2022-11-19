@@ -1,6 +1,6 @@
 <template>
-  <SelectedLabelsComponent v-model="selectedLabels" :available-labels="availableLabels" class="selected-labels-section" :style="cssVars">
-  </SelectedLabelsComponent>
+  <LabelSelectionComponent v-model="selectedLabels" :available-labels="availableLabels" class="selected-labels-section" :style="cssVars">
+  </LabelSelectionComponent>
 
   <div class="amount-section">
     <input ref="inputAmount" type="number" name="amount" id="input-amount" v-model="amount" placeholder="0">
@@ -19,7 +19,7 @@
 <script>
 import { createBudgeLog } from "@/budgetUtils"
 import { sendBudgetLog } from "@/api"
-import SelectedLabelsComponent from './SelectedLabelsComponent.vue'
+import LabelSelectionComponent from './LabelSelectionComponent.vue'
 import { storeBudgetLog } from "../localStorageUtils"
 import { LABELS } from "../models"
 
@@ -29,7 +29,7 @@ function getAvailableLabels() {
 
 export default {
   name: 'SubmitBudgetLogComponent',
-  components: { SelectedLabelsComponent },
+  components: { LabelSelectionComponent },
   props: {
     pastLog: {
       type: Object,
