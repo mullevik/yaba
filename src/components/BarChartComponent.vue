@@ -1,35 +1,6 @@
 <template>
     <div id="container" class="svg-container" align="center">
-        <svg v-if="redrawToggle === true" :width="svgWidth" :height="svgHeight">
-            <g>
-                <rect v-for="item in data" class="data-bar" :key="item.label" :x="xScale(0)" :y="yScale(item.label)"
-                    :width="0" :height="yScale.bandwidth()" :fill="item.color"></rect>
-            </g>
-            <g>
-                <rect v-for="item in data" class="under-label-bar" :key="item.label" :x="labelColumnWidth"
-                    :y="yScale(item.label)" :width="0" :height="yScale.bandwidth()" :fill="item.color"></rect>
-            </g>
-            <g>
-                <text v-for="item in data" class="label-text" :key="item.label" :x="0"
-                    :y="yScale(item.label) + yScale.bandwidth() / 2" dx="0.5em" dy="0.25em"
-                    font-size="1em" fill-opacity="0">{{ item.label }}</text>
-            </g>
-            <g>
-                <g v-for="item in data" :key="item.label">
-                    <text v-if="item.amount > 0.6 * this.dataMax" class="dark amount-text" :x="xScale(item.amount)"
-                        :y="yScale(item.label) + yScale.bandwidth() / 2" dx="-0.5em" dy="0.25em" text-anchor="end"
-                        fill-opacity="0" font-size="1em">{{ item.amount.toLocaleString() }} {{
-                                this.currency
-                        }}</text>
-
-                    <text v-else class="light amount-text" :x="xScale(item.amount)"
-                        :y="yScale(item.label) + yScale.bandwidth() / 2" dx="0.5em" dy="0.25em" text-anchor="start"
-                        fill-opacity="0" font-size="1em">{{ item.amount.toLocaleString() }} {{
-                                this.currency
-                        }}</text>
-                </g>
-            </g>
-        </svg>
+        <svg id="chart" v-if="redrawToggle === true" :width="svgWidth" :height="svgHeight"></svg>
     </div>
 
 </template>
@@ -43,7 +14,13 @@ export default {
         this.isLandscape = window.innerHeight < window.innerWidth;
         this.svgWidth = document.getElementById("container").offsetWidth;
         this.addResizeListener();
-        this.animateLoad();
+        this.plot();
+    },
+    watch: {
+        data: {
+            deep: true,
+            handler() { this.plot(); }
+        }
     },
     props: ["data", "currency"],
     data() {
@@ -57,31 +34,75 @@ export default {
         }
     },
     methods: {
-        animateLoad() {
-            d3.selectAll(".data-bar")
+        plot() {
+            this.chart = d3.select("#chart");
+            this.chart.selectAll(".data-bar")
                 .data(this.data)
+                .join("rect")
+                .attr("class", "data-bar")
+                .attr("x", this.xScale(0))
+                .attr("y", d => this.yScale(d.label))
+                .attr("fill", d => d.color)
+                .attr("height", this.yScale.bandwidth())
+                .attr("width", 0)
                 .transition()
                 .delay((d, i) => i * this.animationStepDuration)
                 .duration(this.animationDuration)
                 .attr("x", () => this.xScale(0))
                 .attr("width", (d) => this.xScale(d.amount) - this.xScale(0));
 
-            d3.selectAll(".under-label-bar")
+            this.chart.selectAll(".under-label-bar")
                 .data(this.data)
+                .join("rect")
+                .attr("class", "under-label-bar")
+                .attr("x", this.labelColumnWidth)
+                .attr("y", d => this.yScale(d.label))
+                .attr("width", 0)
+                .attr("height", this.yScale.bandwidth())
+                .attr("fill", d => d.color)
                 .transition()
                 .delay((d, i) => i * this.animationStepDuration)
                 .duration(this.animationDuration)
                 .attr("x", 0)
                 .attr("width", this.labelColumnWidth);
 
-            d3.selectAll(".label-text")
+            this.chart.selectAll(".label-text")
+                .data(this.data)
+                .join("text")
+                .attr("class", "label-text")
+                .attr("x", 0)
+                .attr("y", d => this.yScale(d.label) + this.yScale.bandwidth() / 2)
+                .attr("dx", "0.5em")
+                .attr("dy", "0.25em")
+                .attr("font-size", "1em")
+                .attr("fill-opacity", 0)
+                .text(d => d.label)
                 .transition()
                 .delay((d, i) => i * this.animationStepDuration)
                 .duration(this.animationDuration)
                 .attr("x", 0)
                 .attr("fill-opacity", 1);
 
-            d3.selectAll(".amount-text")
+            this.chart.selectAll(".amount-text")
+                .data(this.data)
+                .join("text")
+                .attr("class", "light amount-text")
+                .attr("font-family", "sans-serif")
+                .attr("font-size", "1em")
+                .attr("text-anchor", "start")
+                .attr("x", d => this.xScale(d.amount))
+                .attr("y", d => this.yScale(d.label) + this.yScale.bandwidth() / 2)
+                .attr("dx", "0.5em")
+                .attr("dy", "0.25em")
+                .attr("fill-opacity", 0)
+                .text(d => `${d.amount.toLocaleString()} ${this.currency}`)
+                .call(selection => selection
+                    .filter(d => d.amount > 0.6 * this.dataMax)
+                    .attr("text-anchor", "end")
+                    .attr("dx", "-0.5em")
+                    .attr("dy", "0.25em")
+                    .attr("class", "dark amount-text")
+                )
                 .transition()
                 .delay((d, i) => i * this.animationStepDuration)
                 .duration(this.animationDuration)
@@ -94,7 +115,7 @@ export default {
                     this.isLandscape = window.innerHeight < window.innerWidth;
                     this.redrawToggle = true;
                     this.svgWidth = document.getElementById("container").offsetWidth;
-                    this.animateLoad();
+                    this.plot();
                 }, 300);
             });
         },

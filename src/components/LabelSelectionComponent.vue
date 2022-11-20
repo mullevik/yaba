@@ -11,6 +11,7 @@
             <AvailableLabelsComponent :available-labels="availableLabels" :search-text="searchText" @on-label-selected="this.selectLabel"
                 class="available-labels-section" :style="cssVars">
             </AvailableLabelsComponent>
+            <p v-if="!alwaysExpanded" class="hide" @click="isExpanded = false"><i><font-awesome-icon icon="fa-solid fa-angle-up" /> hide</i></p>
         </div>
     </div>
 </template>
@@ -74,6 +75,9 @@ export default {
 </script>
 
 <style scoped>
+div.container {
+    position: relative;
+}
 
 div.selected-labels {
     display: block;
@@ -83,9 +87,15 @@ div.selected-labels {
     padding: 0.5em 0 0.5em 0.3em;
 }
 div.available-labels {
-    float: left;
     background-color: var(--cp-secondary-middle);
     box-shadow: 0 0px 6px 3px #000000aa;
     min-width: 100%;
+}
+
+p.hide {
+    cursor: pointer;
+    margin: 0;
+    padding: 0.5em;
+    color: var(--cp-text-light-dimmed);
 }
 </style>
