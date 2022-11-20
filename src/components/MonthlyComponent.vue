@@ -6,15 +6,16 @@
         <button id="month-next" class="month-selection-item" @click="selectNextMonth" :disabled="!hasNextMonth"><font-awesome-icon icon="fa-solid fa-arrow-right" /></button>
 
     </div>
+    <LabelSelectionComponent v-model="labelsToFilter" :available-labels="availableLabels"></LabelSelectionComponent>
     <div>
-        <div class="info-note" v-if="monthlyData.length == 0 && !isFetching">No monthly data available</div>
+        <div class="info-note" v-if="filteredMonthlyData.length == 0 && !isFetching">No monthly data available</div>
         <div class="info-note" v-if="isFetching">
             <font-awesome-icon icon="fa-solid fa-spinner" spin/>
             obtaining data for {{selectedDate.toLocaleDateString(getLocale(), {month: 'long'})}} {{selectedDate.getFullYear()}}
         </div>
-        <div v-if="monthlyData.length > 0 && !isFetching">
+        <div v-if="filteredMonthlyData.length > 0 && !isFetching">
             <div class="info-note">{{this.total.toLocaleString()}} {{this.currency}} spent in total</div>
-            <BarChartComponent :data="this.monthlyData" :currency="this.currency"></BarChartComponent>
+            <BarChartComponent :data="this.filteredMonthlyData" :currency="this.currency"></BarChartComponent>
         </div>
         
     </div>
@@ -23,13 +24,21 @@
 import { COLOR, LABELS } from '@/models';
 import { getMonthlyLogs } from '@/api'
 import BarChartComponent from './BarChartComponent.vue';
+import LabelSelectionComponent from './LabelSelectionComponent.vue';
 
 const LABEL_COLOR_MAP = {}
 for (const label of LABELS) {
     LABEL_COLOR_MAP[label.name.toLowerCase()] = label.color;
 }
 
-function transform(data) {
+function getAvailableLabels() {
+    return LABELS;
+}
+
+function transform(data, labelNamesToFilter) {
+    if (data == null) {
+        return [];
+    }
 
     function cleanLabelName(label) {
         return label.toLocaleLowerCase().replace(",", "").trim();
@@ -39,8 +48,12 @@ function transform(data) {
     for (const row of data["rows"]) {
         const labels = row[1];
         const amount = row[0];
-        for (const label of labels.split(" ")) {
-            const cleanLabel = cleanLabelName(label);
+        const cleanLabels = new Set(labels.split(" ").map(x => cleanLabelName(x)));
+        const labelIntersection = new Set([...cleanLabels].filter(x => labelNamesToFilter.has(x)));  // cleanLabels.intersection(labelNamesToFilter)
+        if (labelNamesToFilter.size > 0 && labelIntersection.size == 0) {
+            continue;  // ignore rows with empty intersection with filter
+        }
+        for (const cleanLabel of cleanLabels) {
             aggregatedResults[cleanLabel] = cleanLabel in aggregatedResults ? aggregatedResults[cleanLabel] + amount : amount;
         }
     }
@@ -59,9 +72,11 @@ export default {
         return {
             currentDate: new Date(),
             selectedDate: new Date(),
-            monthlyData: [],
+            rawMonthlyData: null,
             isFetching: false,
             currency: ",-",
+            labelsToFilter: [],
+            availableLabels: getAvailableLabels(),
         };
     },
     computed: {
@@ -69,7 +84,10 @@ export default {
             return ((this.selectedDate.getMonth() < this.currentDate.getMonth()) && (this.selectedDate.getFullYear() <= this.currentDate.getFullYear()));
         },
         total() {
-            return this.monthlyData.map(x => x["amount"]).reduce((a, b) => a + b, 0);
+            return this.filteredMonthlyData.map(x => x["amount"]).reduce((a, b) => a + b, 0);
+        },
+        filteredMonthlyData() {
+            return transform(this.rawMonthlyData, new Set(this.labelsToFilter.map(x => x.name)));
         }
     },
     watch: {
@@ -77,6 +95,14 @@ export default {
         selectedDate(newDate, oldDate) {
             this.fetchMonthlyData();
         },
+        labelsToFilter() {
+            // fixme: this is a hack to always destroy the chart component...
+            // this can be fixed with better implementation of the chart component
+            this.isFetching = true;
+            setTimeout(() => {
+                this.isFetching = false;
+            }, 100);
+        }
     },
     methods: {
         getLocale() {
@@ -109,16 +135,16 @@ export default {
         fetchMonthlyData() {
             this.isFetching = true;
             getMonthlyLogs(this.selectedDate.getFullYear(), this.selectedDate.getMonth()).then(responseData => {
-                this.monthlyData = transform(responseData);
+                this.rawMonthlyData = responseData;
                 this.currency = responseData["currency"];
             }).catch(() => {
-                this.monthlyData = [];
+                this.rawMonthlyData = [];
             }).finally(() => {
                 this.isFetching = false;
             });
         },
     },
-    components: { BarChartComponent }
+    components: { BarChartComponent, LabelSelectionComponent }
 }
 </script>
 

@@ -42,7 +42,6 @@ export default {
             });
         },
         filteredLabels() {
-            console.log(this.searchText);
             if (this.searchText.trim().length == 0) {return this.sortedLabels}
             return this.sortedLabels.filter(x => x.name.toLowerCase().includes(this.searchText.toLocaleLowerCase()));
         }

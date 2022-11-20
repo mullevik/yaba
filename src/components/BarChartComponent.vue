@@ -45,6 +45,12 @@ export default {
         this.addResizeListener();
         this.animateLoad();
     },
+    watch: {
+        data: {
+            deep: true,
+            handler() { this.animateLoad(); }
+        }
+    },
     props: ["data", "currency"],
     data() {
         return {
