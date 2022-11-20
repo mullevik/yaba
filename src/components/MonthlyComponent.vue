@@ -14,7 +14,10 @@
             obtaining data for {{selectedDate.toLocaleDateString(getLocale(), {month: 'long'})}} {{selectedDate.getFullYear()}}
         </div>
         <div v-if="filteredMonthlyData.length > 0 && !isFetching">
-            <div class="info-note">{{this.total.toLocaleString()}} {{this.currency}} spent in total</div>
+            <div class="info-note">{{this.total.toLocaleString()}} {{this.currency}} spent 
+                <span v-if="labelsToFilter.length == 0">in total</span>
+                <span v-else>on {{labelsToFilter.map(x => x.name).join(" or ")}}</span>
+            </div>
             <BarChartComponent :data="this.filteredMonthlyData" :currency="this.currency"></BarChartComponent>
         </div>
         
@@ -95,14 +98,6 @@ export default {
         selectedDate(newDate, oldDate) {
             this.fetchMonthlyData();
         },
-        labelsToFilter() {
-            // fixme: this is a hack to always destroy the chart component...
-            // this can be fixed with better implementation of the chart component
-            this.isFetching = true;
-            setTimeout(() => {
-                this.isFetching = false;
-            }, 100);
-        }
     },
     methods: {
         getLocale() {
