@@ -114,6 +114,7 @@ export default {
 .selected-labels-section {
   /* width: 100%; */
   background-color: var(--cp-secondary-middle);
+  text-align: left;
 }
 
 div.amount-section {

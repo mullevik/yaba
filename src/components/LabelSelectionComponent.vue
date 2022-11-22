@@ -39,9 +39,6 @@ export default {
         placeholder() {
             return this.modelValue.length > 0 ? "... or type a custom label" : "choose labels or start typing";
         },
-        // isExpanded() {
-
-        // }
     },
     data() {
         return {
@@ -55,7 +52,7 @@ export default {
         },
         addLabel(name, color = null) {
             const newLabels = this.modelValue.map(x => x);
-            newLabels.push({ name: name, color: color })
+            newLabels.push({ name: name.trim().toLowerCase(), color: color })
             this.$emit("update:modelValue", newLabels);
         },
         selectLabel(name) {
@@ -81,7 +78,6 @@ div.container {
 
 div.selected-labels {
     display: block;
-    text-align: left;
     box-sizing: border-box;
     line-height: 1em;
     padding: 0.5em 0 0.5em 0.3em;
