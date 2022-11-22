@@ -8,17 +8,17 @@
     </div>
     <LabelSelectionComponent v-model="labelsToFilter" :available-labels="availableLabels"></LabelSelectionComponent>
     <div>
-        <div class="info-note" v-if="filteredMonthlyData.length == 0 && !isFetching">No monthly data available</div>
+        <div class="info-note" v-if="monthlyData.length == 0 && !isFetching">No monthly data available</div>
         <div class="info-note" v-if="isFetching">
             <font-awesome-icon icon="fa-solid fa-spinner" spin/>
             obtaining data for {{selectedDate.toLocaleDateString(getLocale(), {month: 'long'})}} {{selectedDate.getFullYear()}}
         </div>
-        <div v-if="filteredMonthlyData.length > 0 && !isFetching">
+        <div v-if="monthlyData.length > 0 && !isFetching">
             <div class="info-note">{{this.total.toLocaleString()}} {{this.currency}} spent 
                 <span v-if="labelsToFilter.length == 0">in total</span>
                 <span v-else>on {{labelsToFilter.map(x => x.name).join(" or ")}}</span>
             </div>
-            <BarChartComponent :data="this.filteredMonthlyData" :currency="this.currency"></BarChartComponent>
+            <BarChartComponent :data="this.monthlyData" :currency="this.currency"></BarChartComponent>
         </div>
         
     </div>
@@ -38,34 +38,40 @@ function getAvailableLabels() {
     return LABELS;
 }
 
-function transform(data, labelNamesToFilter) {
-    if (data == null) {
-        return [];
-    }
+function filteredRows(rawRows, labelNamesToFilter) {
 
     function cleanLabelName(label) {
         return label.toLocaleLowerCase().replace(",", "").trim();
     }
-
-    const aggregatedResults = {};
-    for (const row of data["rows"]) {
+    
+    return rawRows.map(row => {
         const labels = row[1];
-        const amount = row[0];
         const cleanLabels = new Set(labels.split(" ").map(x => cleanLabelName(x)));
-        const labelIntersection = new Set([...cleanLabels].filter(x => labelNamesToFilter.has(x)));  // cleanLabels.intersection(labelNamesToFilter)
-        if (labelNamesToFilter.size > 0 && labelIntersection.size == 0) {
-            continue;  // ignore rows with empty intersection with filter
-        }
-        for (const cleanLabel of cleanLabels) {
-            aggregatedResults[cleanLabel] = cleanLabel in aggregatedResults ? aggregatedResults[cleanLabel] + amount : amount;
+        return {amount: row[0], cleanLabels: cleanLabels};
+    }).filter(dataObject => {
+        const labelIntersection = new Set([...dataObject.cleanLabels].filter(x => labelNamesToFilter.has(x)));  // cleanLabels.intersection(labelNamesToFilter)
+        return !(labelNamesToFilter.size > 0 && labelIntersection.size == 0);
+    });
+}
+
+function aggregateLabels(dataObjects) {
+    const aggregatedResults = {};
+    for (let dataObject of dataObjects) {
+        for (const cleanLabel of dataObject.cleanLabels) {
+            aggregatedResults[cleanLabel] = cleanLabel in aggregatedResults ? aggregatedResults[cleanLabel] + dataObject.amount : dataObject.amount;
         }
     }
     const results = [];
     for (const [key, value] of Object.entries(aggregatedResults)) {
         results.push({ "label": key, "amount": value, "color": key in LABEL_COLOR_MAP ? LABEL_COLOR_MAP[key] : COLOR.GRAY });
     }
-    return results.sort((a, b) => a["amount"] > b["amount"] ? -1 : (a["amount"] < b["amount"] ? 1 : 0));
+    return results;
 }
+
+function sortByAmount(aggregatedData) {
+    return aggregatedData.sort((a, b) => a["amount"] > b["amount"] ? -1 : (a["amount"] < b["amount"] ? 1 : 0));
+}
+
 export default {
     name: "MonthlyComponent",
     mounted() {
@@ -75,7 +81,7 @@ export default {
         return {
             currentDate: new Date(),
             selectedDate: new Date(),
-            rawMonthlyData: null,
+            rawMonthlyRows: [],
             isFetching: false,
             currency: ",-",
             labelsToFilter: [],
@@ -86,11 +92,14 @@ export default {
         hasNextMonth() {
             return ((this.selectedDate.getMonth() < this.currentDate.getMonth()) && (this.selectedDate.getFullYear() <= this.currentDate.getFullYear()));
         },
-        total() {
-            return this.filteredMonthlyData.map(x => x["amount"]).reduce((a, b) => a + b, 0);
+        filteredRows() {
+            return filteredRows(this.rawMonthlyRows, new Set(this.labelsToFilter.map(x => x.name)));
         },
-        filteredMonthlyData() {
-            return transform(this.rawMonthlyData, new Set(this.labelsToFilter.map(x => x.name)));
+        total() {
+            return this.filteredRows.map(x => x.amount).reduce((a, b) => a + b, 0);
+        },
+        monthlyData() {
+            return sortByAmount(aggregateLabels(this.filteredRows));
         }
     },
     watch: {
@@ -130,10 +139,10 @@ export default {
         fetchMonthlyData() {
             this.isFetching = true;
             getMonthlyLogs(this.selectedDate.getFullYear(), this.selectedDate.getMonth()).then(responseData => {
-                this.rawMonthlyData = responseData;
+                this.rawMonthlyRows = responseData["rows"];
                 this.currency = responseData["currency"];
             }).catch(() => {
-                this.rawMonthlyData = [];
+                this.rawMonthlyRows = [];
             }).finally(() => {
                 this.isFetching = false;
             });
